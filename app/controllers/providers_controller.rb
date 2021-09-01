@@ -13,6 +13,7 @@ class ProvidersController < ApplicationController
   # GET /providers/new
   def new
     @provider = Provider.new
+    @provider.build_address
   end
 
   # GET /providers/1/edit
@@ -64,6 +65,8 @@ class ProvidersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def provider_params
-      params.require(:provider).permit(:corporateName, :fantasyName, :phone, :cnpj, :stateRegistration, :email, :type, :codeProvider)
+      params.require(:provider).permit(:corporateName, :fantasyName, :phone, :cnpj, :stateRegistration, :email, :business, :codeProvider,
+        address_attributes: [:city, :street, :neighborhood, :number, :complement, :state, :zipcode]
+      )
     end
 end

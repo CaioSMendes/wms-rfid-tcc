@@ -1,0 +1,45 @@
+
+    <%= form.text_field :name %>
+    <%= form.number_field :quantity %>
+    <%= form.text_field :unity %>
+    <%= form.text_field :productCode %>
+    <%= form.text_field :gtin %>
+    <%= form.text_field :rfid %>
+    <%= form.number_field :productMin %>
+    <%= form.number_field :productMax %>
+    <%= form.text_field :salePrice %>
+    <%= form.text_field :saleCost %>
+    <%= form.text_area :description %>
+
+
+name_categorie": "LLC",
+cod_categorie": "4606896745",
+corporateName_provider": "Reichert, Gislason and Hamill",
+fantasyName_provider": "Civil Engineering"
+
+
+
+
+
+
+
+
+                            <%= form.text_field :name, class: "form-control" %>
+                            <%= form.text_field :quantity, class:"form-control" %>
+                            <%= form.text_field :unity, class:"form-control" %>
+                            <%= form.text_field :salePrice, class:"form-control" %>
+                            <%= form.text_field :saleCost, class:"form-control" %>
+                            <%= form.text_field :productCode, class: "form-control" %>
+                            <%= form.text_field :gtin, class: "form-control" %>
+                            <%= form.text_field :codeProvider, class: "form-control" %>
+                            <%= form.text_field :rfid, class: "form-control" %>
+                            <%= form.text_field :productMax, class: "form-control" %>
+                            <%= form.text_field :productMin, class: "form-control" %>
+                      <%= form.fields_for :category do |f| %>
+                            <%= f.text_field :name, class:"form-control" %>
+                            <%= f.text_field :codCategorie, class:"form-control" %>
+                      <%= form.fields_for :category do |ff| %>
+                            <%= ff.text_field :fantasyName, class:"form-control" %
+                            <%= ff.text_field :cnpj, class:"form-control" %>
+                            <%= f.text_field :description, class:"form-control" %>
+                        

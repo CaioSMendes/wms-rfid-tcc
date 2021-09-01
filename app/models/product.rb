@@ -3,5 +3,9 @@ class Product < ApplicationRecord
     belongs_to :provider
     has_one_attached :image
 
-    validates :name, :quantity, :unity, :price, :rfid, :salePrice, :saleCost, presence: true
+    accepts_nested_attributes_for :categorie
+    accepts_nested_attributes_for :provider
+
+
+    validates :name, :quantity, :unity, :price, :rfid, :saleCost, presence: true
 end
