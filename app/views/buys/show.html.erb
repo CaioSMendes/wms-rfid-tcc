@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @buy.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @buy.quantity %>
+</p>
+
+<p>
+  <strong>Nameproduct:</strong>
+  <%= @buy.nameProduct %>
+</p>
+
+<p>
+  <strong>Datebuy:</strong>
+  <%= @buy.dateBuy %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @buy.discount %>
+</p>
+
+<p>
+  <strong>Measurement:</strong>
+  <%= @buy.measurement %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @buy.description %>
+</p>
+
+<p>
+  <strong>Ipi:</strong>
+  <%= @buy.ipi %>
+</p>
+
+<p>
+  <strong>Icms:</strong>
+  <%= @buy.icms %>
+</p>
+
+<p>
+  <strong>Shipping:</strong>
+  <%= @buy.shipping %>
+</p>
+
+<p>
+  <strong>Costadd:</strong>
+  <%= @buy.costAdd %>
+</p>
+
+<%= link_to 'Edit', edit_buy_path(@buy) %> |
+<%= link_to 'Back', buys_path %>

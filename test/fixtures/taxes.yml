@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shipping: 1.5
+  costAdd: 1.5
+  ipi: 1.5
+  icms: 1.5
+
+two:
+  shipping: 1.5
+  costAdd: 1.5
+  ipi: 1.5
+  icms: 1.5

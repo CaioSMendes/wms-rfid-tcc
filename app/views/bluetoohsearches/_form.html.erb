@@ -1,0 +1,22 @@
+<%= form_with(model: bluetoohsearch, local: true) do |form| %>
+  <% if bluetoohsearch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bluetoohsearch.errors.count, "error") %> prohibited this bluetoohsearch from being saved:</h2>
+
+      <ul>
+        <% bluetoohsearch.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rfidCode %>
+    <%= form.text_field :rfidCode %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

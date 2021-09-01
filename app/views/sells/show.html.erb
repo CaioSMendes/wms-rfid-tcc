@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @sell.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @sell.quantity %>
+</p>
+
+<p>
+  <strong>Nameproduct:</strong>
+  <%= @sell.nameProduct %>
+</p>
+
+<p>
+  <strong>Datasell:</strong>
+  <%= @sell.dataSell %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @sell.discount %>
+</p>
+
+<p>
+  <strong>Measurement:</strong>
+  <%= @sell.measurement %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sell.description %>
+</p>
+
+<%= link_to 'Edit', edit_sell_path(@sell) %> |
+<%= link_to 'Back', sells_path %>

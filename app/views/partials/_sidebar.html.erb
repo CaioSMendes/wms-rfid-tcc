@@ -1,0 +1,74 @@
+ <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Creative Tim
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+           
+          <%= content_tag :li ,class: "nav-item active" do%>
+              <%=link_to  root_path, class:"nav-link" do%>
+                <i class="material-icons">dashboard</i>
+              Dashboard
+              <%end%>
+          <%end%>       
+
+           <%= content_tag :li ,class: "nav-item" do%>
+              <%=link_to  clients_path, class:"nav-link" do%>
+                <i class="material-icons">person</i>
+              Clientes
+              <%end%>
+          <%end%>
+
+          <%= content_tag :li ,class: "nav-item" do%>
+            <%=link_to  providers_path, class:"nav-link" do%>
+                <i class="material-icons">local_shipping</i>
+                Fornecedores
+            <%end%>
+          <%end%>
+
+            <%= content_tag :li ,class: "nav-item" do%>
+            <%=link_to  categories_path, class:"nav-link" do%>
+                <i class="material-icons">create_new_folder</i>
+                Categorias
+            <%end%>
+          <%end%>
+
+          <%= content_tag :li ,class: "nav-item" do%>
+            <%=link_to  products_path, class:"nav-link" do%>
+                <i class="material-icons">desktop_mac</i>
+                Produtos
+            <%end%>
+          <%end%>
+
+          <%= content_tag :li ,class: "nav-item" do%>
+            <%=link_to  buys_path, class:"nav-link" do%>
+                <i class="material-icons">local_mall</i>
+                Compras
+            <%end%>
+          <%end%>
+
+          <%= content_tag :li ,class: "nav-item" do%>
+            <%=link_to  sells_path, class:"nav-link" do%>
+                <i class="material-icons">attach_money</i>
+                Venda
+            <%end%>
+          <%end%>
+
+          <%
+=begin%>
+ <%= content_tag :li ,class: "nav-item" do%>
+            <%=link_to  configuracao_index_path, class:"nav-link" do%>
+                <i class="material-icons">build</i>
+                Configuração
+            <%end%>
+          <%end%> 
+<%
+=end%>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+
+
+     
+
+

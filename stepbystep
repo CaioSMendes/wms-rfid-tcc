@@ -1,0 +1,170 @@
+rails g scaffold Product name:string description:text quantity:integer unity:string price:float date:date productCode:string gtin:string rfid:string productMin:integer productMax:integer salePrice:float saleCost:float avaliable:string
+rails g scaffold Categorie name:string codCategorie:string
+rails g migration add_categorie_to_product categorie:references
+rails g scaffold Provider corporateName:string fantasyName:string phone:string cnpj:string stateRegistration:string email:string type:string codeProvider:string
+rails g scaffold Address city:string street:string neighborhood:string number:string complement:string state:string zipcode:string
+rails g migration add_address_to_provider address:references
+rails g migration add_provider_to_product provider:references
+rails g scaffold Client corporateName:string fantasyName:string name:string phone:string cnpj:string email:string codeClient:string
+rails g migration add_address_to_client address:references
+rails g scaffold sell price:float quantity:integer nameProduct:string dataSell:date discount:float measurement:float description:text
+rails g scaffold Buy price:float quantity:integer nameProduct dateBuy:date discount:float measurement:float description:text ipi:float icms:float shipping:float costAdd:float
+rails g migration add_product_to_sell product:references
+rails g migration add_client_to_sell client:references
+rails g migration add_product_to_buy product:references
+rails g migration add_provider_to_buy provider:references
+rails g scaffold Tax shipping:float costAdd:float ipi:float icms:float
+rails g migration add_tax_to_sell tax:references
+rails g migration add_tax_to_buy tax:references
+rails g scaffold Wallet buy:float sell:float total:float 
+rails g migration add_sell_to_wallet sell:references
+rails g migration add_buy_to_wallet buy:references
+rails g scaffold bluetoohsearch rfidCode:string 
+rails g migration add_product_to_bluetoohsearch product:references
+------------------------------------------------------------
+
+
+rails g scaffold Wallet wallet:float   
+
+rails g migration add_buy_to_product buy:references
+rails g migration add_sell_to_product sell:references
+rails g migration add_bluetoohsearch_to_product bluetoohsearch:references
+
+rails g scaffold bluetoohsearch rfidCode:string 
+
+----------------------------------------
+
+
+u = Product.new(name:'string', description:'text', quantity:'integer', unity:'string', price:'float', date:'date', productCode:'string', gtin:'string', rfid:'string', productMin:'integer', productMax:'integer', salePrice:'float', saleCost:'float', avaliable:'string')
+
+Product name:'string', description:'text', quantity:'integer', unity:'string', price:'float', date:'date', productCode:'string', gtin:'string', rfid:'string', productMin:'integer', productMax:'integer', salePrice:'float', saleCost:'float', avaliable:'string'
+
+===================================
+2 passo 
+
+rails g scaffold Provider corporateName:string fantasyName:string phone:string cnpj:string stateRegistration:string email:string business:string codeProvider:string
+rails g scaffold Address city:string street:string neighborhood:string number:string complement:string state:string zipcode:string  
+rails g migration add_address_to_provider address:references
+    p "Cadastrando Enderecos"
+    10.times do |i|
+      Address.create!(
+        city: Faker::Address.city,
+        street: Faker::Address.street_name,
+        neighborhood: Faker::Address.street_address ,
+        number: Faker::Address.building_number,
+        complement: Faker::Address.full_address,
+        state: Faker::Address.state,
+        zipcode: Faker::Address.zip_code
+    )
+    end
+    p "Cadastrando Fornecedores"
+    10.times do |i|
+      Provider.create!(
+        corporateName: Faker::Company.name,
+        fantasyName: Faker::Company.industry,
+        phone: Faker::PhoneNumber.cell_phone,
+        cnpj: Faker::Company.brazilian_company_number,
+        stateRegistration: Faker::Company.spanish_organisation_number,
+        email: Faker::Internet.email,
+        business: Faker::Company.type,
+        codeProvider: Faker::Number.between(from: 10, to: 100),
+        address: Address.all.sample
+    )
+    end 
+
+    3 passo 
+    rails g migration add_provider_to_product provider:references
+
+    4 passo
+    - rails g migration add_address_to_client address:references
+
+    5 passo
+    gerar tabelas Sell e Buy
+    rails g scaffold sell price:float quantity:integer dataSell:date discount:float measurement:float description:text sell:float
+    - rails g migration add_client_to_sell client:references
+
+    p "Cadastrando Vendas"
+    30.times do |i|
+      Sell.create!(
+        price: Faker::Commerce.price,
+        quantity: Faker::Number.between(from: 1, to: 500),
+        dateBuy: Faker::Date.in_date_period,
+        discount: Faker::Number.between(from: 10, to: 100),
+        measurement: Faker::Measurement.height,
+        description: Faker::ElectricalComponents.electromechanical,
+        sell: Faker::Number.between(from: 1, to: 500)
+        product: Product.all.sample
+        client: Client.all.sample
+    )
+    end 
+
+    rails g scaffold buy price:float quantity:integer dateBuy:date discount:float measurement:float description:text buy:float
+    - rails g migration add_product_to_buy product:references
+    - rails g migration add_provider_to_buy provider:references
+
+    p "Cadastrando Compras"
+    30.times do |i|
+      Buy.create!(
+        price: Faker::Commerce.price,
+        quantity: Faker::Number.between(from: 1, to: 500),
+        dataSell: Faker::Date.in_date_period,
+        discount: Faker::Number.between(from: 10, to: 100),
+        measurement: Faker::Measurement.height,
+        description: Faker::ElectricalComponents.electromechanical,
+        buy: Faker::Number.between(from: 1, to: 500)
+        product: Product.all.sample
+        provider: Provider.all.sample
+    )
+    end 
+
+    6 paaso 
+    rails g scaffold Tax shipping:float costAdd:float ipi:float icms:float
+    - rails g migration add_tax_to_sell tax:references
+    - rails g migration add_tax_to_buy tax:references
+
+    p "Cadastrando Taxas"
+        30.times do |i|
+          Tax.create!(
+            shipping: Faker::Number.decimal(l_digits: 2),
+            costAdd: Faker::Number.decimal(l_digits: 2),
+            ipi: Faker::Number.decimal(l_digits: 2),
+            icms Faker::Number.decimal(l_digits: 2)
+        )
+        end 
+
+   7 passo
+        rails g scaffold Wallet buy:float sell:float total:float 
+        rails g migration add_sell_to_wallet sell:references
+        rails g migration add_buy_to_wallet buy:references
+
+p "Cadastrando Carteira"
+    30.times do |i|
+      Wallet.create!(
+        buy: Faker::Number.decimal(l_digits: 2),
+        sell: Faker::Number.decimal(l_digits: 2),
+        total: Faker::Number.decimal(l_digits: 2),
+        sell: Sell.all.sample,
+        buy: Buy.all.sample
+    )
+    end 
+
+    8 passo 
+    rails g scaffold bluetoohsearch rfidCode:string 
+    rails g migration add_product_to_bluetoohsearch product:references
+
+p "Cadastrando Buscas Bluetooh"
+    30.times do |i|
+      Bluetoohsearch.create!(
+        rfidCode: Faker::Barcode.upc_e,
+        product: Product.all.sample
+    )
+
+upar no git 
+
+1 - git add .
+2- git commit -m "comentario"
+3- git push --set-upstream origin providers
+
+bundle exec erd -> gerar pdf com BD 
+
+rails dev:setup  -> rodar task seed

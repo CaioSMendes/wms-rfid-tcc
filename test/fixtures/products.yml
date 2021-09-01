@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  quantity: 1
+  unity: MyString
+  price: 1.5
+  date: 2021-08-31
+  productCode: MyString
+  gtin: MyString
+  rfid: MyString
+  productMin: 1
+  productMax: 1
+  salePrice: 1.5
+  saleCost: 1.5
+  avaliable: MyString
+
+two:
+  name: MyString
+  description: MyText
+  quantity: 1
+  unity: MyString
+  price: 1.5
+  date: 2021-08-31
+  productCode: MyString
+  gtin: MyString
+  rfid: MyString
+  productMin: 1
+  productMax: 1
+  salePrice: 1.5
+  saleCost: 1.5
+  avaliable: MyString

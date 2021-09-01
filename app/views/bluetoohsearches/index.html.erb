@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bluetoohsearches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rfidcode</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bluetoohsearches.each do |bluetoohsearch| %>
+      <tr>
+        <td><%= bluetoohsearch.rfidCode %></td>
+        <td><%= link_to 'Show', bluetoohsearch %></td>
+        <td><%= link_to 'Edit', edit_bluetoohsearch_path(bluetoohsearch) %></td>
+        <td><%= link_to 'Destroy', bluetoohsearch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bluetoohsearch', new_bluetoohsearch_path %>

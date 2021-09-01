@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buy: 1.5
+  sell: 1.5
+  total: 1.5
+
+two:
+  buy: 1.5
+  sell: 1.5
+  total: 1.5

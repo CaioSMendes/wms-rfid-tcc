@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1.5
+  quantity: 1
+  nameProduct: MyString
+  dateBuy: 2021-08-31
+  discount: 1.5
+  measurement: 1.5
+  description: MyText
+  ipi: 1.5
+  icms: 1.5
+  shipping: 1.5
+  costAdd: 1.5
+
+two:
+  price: 1.5
+  quantity: 1
+  nameProduct: MyString
+  dateBuy: 2021-08-31
+  discount: 1.5
+  measurement: 1.5
+  description: MyText
+  ipi: 1.5
+  icms: 1.5
+  shipping: 1.5
+  costAdd: 1.5

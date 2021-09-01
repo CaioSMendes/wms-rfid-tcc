@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @product.quantity %>
+</p>
+
+<p>
+  <strong>Unity:</strong>
+  <%= @product.unity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @product.date %>
+</p>
+
+<p>
+  <strong>Productcode:</strong>
+  <%= @product.productCode %>
+</p>
+
+<p>
+  <strong>Gtin:</strong>
+  <%= @product.gtin %>
+</p>
+
+<p>
+  <strong>Rfid:</strong>
+  <%= @product.rfid %>
+</p>
+
+<p>
+  <strong>Productmin:</strong>
+  <%= @product.productMin %>
+</p>
+
+<p>
+  <strong>Productmax:</strong>
+  <%= @product.productMax %>
+</p>
+
+<p>
+  <strong>Saleprice:</strong>
+  <%= @product.salePrice %>
+</p>
+
+<p>
+  <strong>Salecost:</strong>
+  <%= @product.saleCost %>
+</p>
+
+<p>
+  <strong>Avaliable:</strong>
+  <%= @product.avaliable %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

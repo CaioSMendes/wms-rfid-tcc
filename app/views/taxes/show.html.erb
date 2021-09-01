@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shipping:</strong>
+  <%= @tax.shipping %>
+</p>
+
+<p>
+  <strong>Costadd:</strong>
+  <%= @tax.costAdd %>
+</p>
+
+<p>
+  <strong>Ipi:</strong>
+  <%= @tax.ipi %>
+</p>
+
+<p>
+  <strong>Icms:</strong>
+  <%= @tax.icms %>
+</p>
+
+<%= link_to 'Edit', edit_tax_path(@tax) %> |
+<%= link_to 'Back', taxes_path %>
