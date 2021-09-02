@@ -1,236 +1,142 @@
-<h1>Editing Client</h1>
-
-<%= render 'form', client: @client %>
-
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
-
-
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
        <%= render "partials/sidebar"%> 
-
- <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
-                  <p class="d-lg-none d-md-block">
-                    Some Actions
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
-                </div>
-              </li>
+       <%= render "partials/navbar"%> 
+      <%= form_with(model: @client, local: true) do |form| %>
+        <% if @client.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+            <ul>
+              <% client.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
             </ul>
           </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">Editar cliente</h4>
-                </div>
-                <div class="card-body">
-                  <form>
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Nome da empresa</label>
-                          <input type="text" class="form-control">
+        <% end %>
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Editar um cliente</h4>
+                  </div>
+                  <div class="card-body">
+                    <form>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Nome da empresa</label>
+                            <%= form.text_field :corporateName, class: "form-control" %>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Nome</label>
+                            <%= form.text_field :name, class:"form-control" %>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Email</label>
+                            <%= form.text_field :email, class:"form-control" %>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Nome</label>
-                          <input type="text" class="form-control">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Nome fantasia</label>
+                            <%= form.text_field :fantasyName, class:"form-control" %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">CNPJ</label>
+                            <%= form.text_field :cnpj, class:"form-control" %>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email</label>
-                          <input type="email" class="form-control">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Telefone</label>
+                            <%= form.text_field :phone, class: "form-control" %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Codigo cliente</label>
+                            <%= form.text_field :codeClient, class: "form-control" %>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Nome fantasia</label>
-                          <input type="text" class="form-control">
+                      <%= form.fields_for :address do |f| %>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Cidade</label>
+                            <%= f.text_field :city, class:"form-control" %>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">CNPJ</label>
-                          <input type="text" class="form-control">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Rua</label>
+                            <%= f.text_field :street, class:"form-control" %>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Estado</label>
+                            <%= f.text_field :state, class:"form-control" %>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">CEP</label>
+                            <%= f.text_field :zipcode, class:"form-control" %>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                     <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Telefone</label>
-                          <input type="text" class="form-control">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Numero</label>
+                            <%= f.text_field :number, class:"form-control" %>
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Codigo cliente</label>
-                          <input type="text" class="form-control">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Complemento</label>
+                            <%= f.text_field :complement, class:"form-control" %>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Cidade</label>
-                          <input type="text" class="form-control">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Bairro</label>
+                            <%= f.text_field :neighborhood, class:"form-control" %>
+                          </div>
                         </div>
+                        <% end %> 
                       </div>
-                    </div>
-                     <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Rua</label>
-                          <input type="text" class="form-control">
-                        </div>
+                      <div class="actions">
+                        <%= link_to 'Voltar', clients_path,  class:"btn btn-primary pull-right" %>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Estado</label>
-                          <input type="text" class="form-control">
-                        </div>
+                       <div class="actions">
+                        <%= form.submit "Editar cliente", class:"btn btn-primary pull-right"%>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">CEP</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Numero</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Complemento</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Bairro</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right">Editar cliente</button>
-                    <div class="clearfix"></div>
-                  </form>
+                      <div class="clearfix"></div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-          </div>
-        </div>
-      </footer>
+      <% end %>
+      <%= render "partials/footer"%>
     </div>
   </div>
   <div class="fixed-plugin">
@@ -256,22 +162,22 @@
         <li class="header-title">Images</li>
         <li class="active">
           <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-1.jpg" alt="">
+            <%image_tag("sidebar-1.jpg") %>
           </a>
         </li>
         <li>
           <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-2.jpg" alt="">
+            <%image_tag("sidebar-2.jpg") %>
           </a>
         </li>
         <li>
           <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-3.jpg" alt="">
+             <%image_tag("sidebar-3.jpg") %>
           </a>
         </li>
         <li>
           <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-4.jpg" alt="">
+            <%image_tag("sidebar-4.jpg") %>
           </a>
         </li>
         <li class="button-container">
