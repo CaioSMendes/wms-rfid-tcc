@@ -70,5 +70,11 @@
   <%= @product.avaliable %>
 </p>
 
+<p>
+  <strong>Nome da categoria:</strong>
+ <%= @product.categorie.name %>
+</p>
+  
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

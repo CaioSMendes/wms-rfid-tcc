@@ -23,6 +23,8 @@ rails g scaffold bluetoohsearch rfidCode:string
 rails g migration add_product_to_bluetoohsearch product:references
 ------------------------------------------------------------
 
+ultima att tireei isso qlqr coisa voltar rails g migration add_provider_to_product provider:references
+
 
 rails g scaffold Wallet wallet:float   
 

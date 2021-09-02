@@ -14,7 +14,6 @@
             </ul>
           </div>
         <% end %>
-
         <div class="content">
           <div class="container-fluid">
             <div class="row">
@@ -41,7 +40,35 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">Unidade de medida</label>
-                            <%= form.text_field :unity, class:"form-control" %>
+                            <%= form.select :unity, ['metro (m)',
+                                              'quilômetro (km)', 
+                                              'hectômetro (hm)', 
+                                              'decâmetro (dam)', 
+                                              'decímetro (dm)', 
+                                              'centímetro (cm)', 
+                                              'milímetro (mm)',
+                                              'litro (l)',
+                                              'quilolitro (kl)', 
+                                              'hectolitro (hl)', 
+                                              'decalitro (dal)', 
+                                              'decilitro (dl)', 
+                                              'centilitro (cl)', 
+                                              'mililitro (ml)',
+                                              'tonelada (t)',
+                                              'quilograma (kg)', 
+                                              'hectograma (hg)', 
+                                              'decagrama (dag)', 
+                                              'grama (g)', 
+                                              'decigrama (dg)', 
+                                              'centigrama (cg)', 
+                                              'miligrama (mg)',
+                                              'metro cúbico (m3)',
+                                              'quilômetro cúbico (km3)', 
+                                              'hectômetro cúbico (hm3)', 
+                                              'decâmetro cúbico (dam3)', 
+                                              'decímetro cúbico (dm3)', 
+                                              'centímetro cúbico (cm3)',  
+                                              'milímetro cúbico (mm3)'],class:"form-control" %>
                           </div>
                         </div>
                       </div>
@@ -101,11 +128,12 @@
                             <%= form.text_field :productMin, class: "form-control" %>
                           </div>
                         </div>
-                      <%= form.fields_for :category do |f| %>
+                      <%= form.fields_for :categorie do |f| %>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="bmd-label-floating">Nome da categoria</label>
-                              <%= f.select("category_id", Categorie.all.collect{|m| [ m.name, m.id ] }, {include_blank:'Selecione...'})%>
+                              <%= f.label :categorie_id %>
+                              <%= f.select("categorie_id", Categorie.all.collect{|m| [ m.name, m.id ] }, {include_blank:'Selecione...'})%>
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -114,23 +142,10 @@
                               <%= f.text_field :codCategorie, class:"form-control" %>
                             </div>
                           </div>
-                      <% end %>
-                      <%= form.fields_for :provider do |ff| %>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="bmd-label-floating">Nome fantasia</label>
-                              <%= ff.text_field :fantasyName, class:"form-control" %>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label class="bmd-label-floating">CNPJ</label>
-                              <%= ff.text_field :cnpj, class:"form-control" %>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label class="bmd-label-floating"></label>
+                              <label class="bmd-label-floating">  </label>
+
                             </div>
                           </div>
                       <% end %>
