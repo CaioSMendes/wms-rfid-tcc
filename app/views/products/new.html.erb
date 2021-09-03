@@ -136,7 +136,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                               <label class="bmd-label-floating">Nome da categoria</label>
-                              <%= form.select("category_id", Categorie.all.collect{|m| [ m.name, m.id ] }, {include_blank:'Selecione...'})%>
+                              <%= form.select("category_id", Categorie.all.collect{|m| [ m.nameCat, m.id ] }, {include_blank:'Selecione...'})%>
                             </div>
                           </div>
              

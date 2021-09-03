@@ -169,4 +169,13 @@ upar no git
 
 bundle exec erd -> gerar pdf com BD 
 
-rails dev:setup  -> rodar task seed
+rails dev:setup  -> rodar task 
+
+
+
+p = Product.first
+c = Categorie.first
+p.categorie = c
+p.save!
+
+

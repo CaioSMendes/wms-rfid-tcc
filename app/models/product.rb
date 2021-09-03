@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    belongs_to :categorie, optional: true
+    belongs_to :categorie
     #belongs_to :provider
     has_one_attached :image
 

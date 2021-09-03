@@ -132,8 +132,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="bmd-label-floating">Nome da categoria</label>
-                              <%= f.label :categorie_id %>
-                              <%= f.select("categorie_id", Categorie.all.collect{|m| [ m.name, m.id ] }, {include_blank:'Selecione...'})%>
+                              <%= f.select("categorie_id", @categorie_options, { include_blank: 'Selecione...' }, class:"form-control") %>
                             </div>
                           </div>
                           <div class="col-md-6">

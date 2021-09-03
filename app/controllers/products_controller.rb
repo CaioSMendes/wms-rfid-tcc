@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
-
+  before_action :set_categorie_options, only:[:new, :edit, :show, :update, :create]
   # GET /products or /products.json
   def index
     @products = Product.all
@@ -59,6 +59,9 @@ class ProductsController < ApplicationController
   end
 
   private
+    def set_categorie_options
+      @categorie_options = Categorie.all.pluck(:nameCat, :id)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
