@@ -1,8 +1,3 @@
-<h1>New Product</h1>
-
-
-<%= link_to 'Back', products_path %>
-
 <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
        <%= render "partials/sidebar"%> 
@@ -36,7 +31,7 @@
                             <%= form.text_field :name, class: "form-control" %>
                           </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                           <div class="form-group">
                             <label class="bmd-label-floating">Quantidade</label>
                             <%= form.text_field :quantity, class:"form-control" %>
@@ -45,7 +40,8 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">Unidade de medida</label>
-                            <%= form.select :unity, ['metro (m)',
+                            <%= form.select :unity, ['unidade (un)',
+                                              'metro (m)',
                                               'quilômetro (km)', 
                                               'hectômetro (hm)', 
                                               'decâmetro (dam)', 
@@ -138,7 +134,8 @@
                               <label class="bmd-label-floating">Nome da categoria</label>
                               <%= form.select("categorie_id", @categorie_options, { include_blank: 'Selecione...' }, class:"form-control") %>
                             </div>
-                          </div>
+                          
+            
              
                        <div class="actions">
                         <%= form.submit "Cadastrar produto", class:"btn btn-primary pull-right"%>
