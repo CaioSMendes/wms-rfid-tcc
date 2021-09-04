@@ -64,16 +64,10 @@ ActiveRecord::Schema.define(version: 2021_09_03_144520) do
     t.float "discount"
     t.float "measurement"
     t.text "description"
-    t.float "ipi"
-    t.float "icms"
-    t.float "shipping"
-    t.float "costAdd"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "product_id", null: false
     t.bigint "provider_id", null: false
     t.bigint "tax_id", null: false
-    t.index ["product_id"], name: "index_buys_on_product_id"
     t.index ["provider_id"], name: "index_buys_on_provider_id"
     t.index ["tax_id"], name: "index_buys_on_tax_id"
   end
@@ -177,7 +171,6 @@ ActiveRecord::Schema.define(version: 2021_09_03_144520) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bluetoohsearches", "products"
-  add_foreign_key "buys", "products"
   add_foreign_key "buys", "providers"
   add_foreign_key "buys", "taxes"
   add_foreign_key "clients", "addresses"

@@ -17,7 +17,7 @@
 
 <p>
   <strong>Datebuy:</strong>
-  <%= @buy.dateBuy %>
+  <%= @buy.created_at.to_date.strftime("%d-%m-%Y") %>
 </p>
 
 <p>
@@ -33,6 +33,36 @@
 <p>
   <strong>Description:</strong>
   <%= @buy.description %>
+</p>
+
+<p>
+  <strong>Nome do fornecedor:</strong>
+  <%= @buy.provider.corporateName %>
+</p>
+
+<p>
+  <strong>Frete:</strong>
+  <%= @buy.tax.shipping %>
+</p>
+
+<p>
+  <strong>Taxa de IPI:</strong>
+  <%= @buy.tax.ipi %>
+</p>
+
+<p>
+  <strong>Taxa de ICMS:</strong>
+  <%= @buy.tax.icms %>
+</p>
+
+<p>
+  <strong>Custo adicional:</strong>
+  <%= @buy.tax.costAdd %>
+</p>
+
+<p>
+  <strong>Descrição do custo adicional:</strong>
+  <%= @buy.tax.description %>
 </p>
 
 <%= link_to 'Edit', edit_buy_path(@buy) %> |

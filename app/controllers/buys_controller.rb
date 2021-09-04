@@ -1,5 +1,7 @@
 class BuysController < ApplicationController
   before_action :set_buy, only: %i[ show edit update destroy ]
+  before_action :set_provider_options, only:[:new, :edit, :show, :update, :create]
+
 
   # GET /buys or /buys.json
   def index
@@ -13,6 +15,7 @@ class BuysController < ApplicationController
   # GET /buys/new
   def new
     @buy = Buy.new
+    @buy.build_tax
   end
 
   # GET /buys/1/edit
@@ -57,6 +60,9 @@ class BuysController < ApplicationController
   end
 
   private
+    def set_provider_options
+      @provider_options = Provider.all.pluck(:corporateName, :id)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_buy
       @buy = Buy.find(params[:id])
@@ -64,6 +70,8 @@ class BuysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def buy_params
-      params.require(:buy).permit(:price, :quantity, :nameProduct, :dateBuy, :discount, :measurement, :description)
+      params.require(:buy).permit(:price, :quantity, :nameProduct, :dateBuy, :discount, :measurement, :description, :provider_id,
+        tax_attributes: [:shipping, :costAdd, :ipi, :icms]
+      )
     end
 end
