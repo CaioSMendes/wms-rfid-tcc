@@ -35,5 +35,40 @@
   <%= @sell.description %>
 </p>
 
+<p>
+  <strong>Nome da categoria:</strong>
+  <%= @sell.client.corporateName %>
+</p>
+
+<p>
+  <strong>Nome do produto:</strong>
+  <%= @sell.product.name %>
+</p>
+
+<p>
+  <strong>Frete:</strong>
+  <%= @sell.tax.shipping %>
+</p>
+
+<p>
+  <strong>Taxa de IPI:</strong>
+  <%= @sell.tax.ipi %>
+</p>
+
+<p>
+  <strong>Taxa de ICMS:</strong>
+  <%= @sell.tax.icms %>
+</p>
+
+<p>
+  <strong>Custo adicional:</strong>
+  <%= @sell.tax.costAdd %>
+</p>
+
+<p>
+  <strong>Descrição do custo adicional:</strong>
+  <%= @sell.tax.description %>
+</p>
+
 <%= link_to 'Edit', edit_sell_path(@sell) %> |
 <%= link_to 'Back', sells_path %>

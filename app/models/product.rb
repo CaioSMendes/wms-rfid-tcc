@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
     belongs_to :categorie #certo
+    has_many :sells
     #has_many :buys #certo
     #has_many :categories
     #belongs_to :provider

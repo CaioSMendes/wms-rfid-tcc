@@ -1,5 +1,8 @@
 class SellsController < ApplicationController
   before_action :set_sell, only: %i[ show edit update destroy ]
+  before_action :set_client_options, only:[:new, :edit, :show, :update, :create]
+  before_action :set_product_options, only:[:new, :edit, :show, :update, :create]
+
 
   # GET /sells or /sells.json
   def index
@@ -13,6 +16,7 @@ class SellsController < ApplicationController
   # GET /sells/new
   def new
     @sell = Sell.new
+    @sell.build_tax
   end
 
   # GET /sells/1/edit
@@ -62,8 +66,18 @@ class SellsController < ApplicationController
       @sell = Sell.find(params[:id])
     end
 
+    def set_client_options
+      @client_options = Client.all.pluck(:corporateName, :id)
+    end
+
+    def set_product_options
+      @product_options = Product.all.pluck(:name, :id)
+    end
+
     # Only allow a list of trusted parameters through.
     def sell_params
-      params.require(:sell).permit(:price, :quantity, :nameProduct, :dataSell, :discount, :measurement, :description)
+      params.require(:sell).permit(:price, :quantity, :nameProduct, :dataSell, :discount, :measurement, :description, :product_id, :client_id,
+        tax_attributes: [:shipping, :costAdd, :ipi, :icms, :description]
+      )
     end
 end

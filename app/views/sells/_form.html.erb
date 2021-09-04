@@ -46,6 +46,47 @@
     <%= form.text_area :description %>
   </div>
 
+  <div class="col-md-6">
+    <div class="form-group">
+      <label class="bmd-label-floating">Nome do fornecedor</label>
+      <%= form.select("client_id", @client_options, { include_blank: 'Selecione...' }, class:"form-control") %>
+    </div>
+  </div>  
+
+  <div class="col-md-6">
+      <div class="form-group">
+        <label class="bmd-label-floating">Nome do produto</label>
+        <%= form.select("product_id", @product_options, { include_blank: 'Selecione...' }, class:"form-control") %>
+      </div>
+  </div>  
+
+  <%= form.fields_for :tax do |f| %>
+        <div class="form-group">
+          <label class="bmd-label-floating">Frete</label>
+          <%= f.text_field :shipping, class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <label class="bmd-label-floating">Taxa de IPI</label>
+          <%= f.text_field :ipi, class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <label class="bmd-label-floating">Taxa de ICMS</label>
+          <%= f.text_field :icms, class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <label class="bmd-label-floating">Custo adicional</label>
+          <%= f.text_field :costAdd, class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <label class="bmd-label-floating">Descrição do custo adicional</label>
+          <%= f.text_field :description, class: "form-control" %>
+        </div>
+  <% end %> 
+
   <div class="actions">
     <%= form.submit %>
   </div>

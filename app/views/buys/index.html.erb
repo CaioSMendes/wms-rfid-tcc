@@ -29,10 +29,13 @@
                           Unidade de medida       
                         </th>
                         <th>
-                          Preço       
+                          Preço unitário       
                         </th>
                         <th>
                           Data de compra       
+                        </th>
+                         <th>
+                          Valor total da compra       
                         </th>
                         <th>
                         <%= link_to new_buy_path, class: "btn btn-success btn-circle" do %>
@@ -60,6 +63,10 @@
                           </td>
                           <td>
                             <%= buy.created_at.to_date.strftime("%d-%m-%Y") %>
+                          </td>
+                          <td>
+                            <% a = (buy.quantity)*(buy.price) %>
+                            <b>R$ </b><%= a  %>
                           </td>
                           <td class="td-actions text-right">
                               <%= link_to buy_path(buy), class:"btn btn-primary btn-link btn-sm" do %>
