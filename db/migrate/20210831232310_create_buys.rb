@@ -8,10 +8,6 @@ class CreateBuys < ActiveRecord::Migration[6.0]
       t.float :discount
       t.float :measurement
       t.text :description
-      t.float :ipi
-      t.float :icms
-      t.float :shipping
-      t.float :costAdd
 
       t.timestamps
     end

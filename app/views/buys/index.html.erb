@@ -12,10 +12,6 @@
       <th>Discount</th>
       <th>Measurement</th>
       <th>Description</th>
-      <th>Ipi</th>
-      <th>Icms</th>
-      <th>Shipping</th>
-      <th>Costadd</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,10 +26,6 @@
         <td><%= buy.discount %></td>
         <td><%= buy.measurement %></td>
         <td><%= buy.description %></td>
-        <td><%= buy.ipi %></td>
-        <td><%= buy.icms %></td>
-        <td><%= buy.shipping %></td>
-        <td><%= buy.costAdd %></td>
         <td><%= link_to 'Show', buy %></td>
         <td><%= link_to 'Edit', edit_buy_path(buy) %></td>
         <td><%= link_to 'Destroy', buy, method: :delete, data: { confirm: 'Are you sure?' } %></td>

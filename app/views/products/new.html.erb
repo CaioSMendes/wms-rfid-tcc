@@ -134,9 +134,13 @@
                               <label class="bmd-label-floating">Nome da categoria</label>
                               <%= form.select("categorie_id", @categorie_options, { include_blank: 'Selecione...' }, class:"form-control") %>
                             </div>
-                          
-            
-             
+                        </div>  
+
+                        <div class="field">
+                            <%= form.label :image %>
+                            <%= form.file_field :image, multiple: false %>
+                        </div>
+
                        <div class="actions">
                         <%= form.submit "Cadastrar produto", class:"btn btn-primary pull-right"%>
                       </div>

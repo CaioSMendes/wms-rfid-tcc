@@ -71,8 +71,12 @@
 </p>
 
 <p>
-  <strong>Nome da categoria:</strong>
+  <strong>Foto do produto:</strong>
+  <%= image_tag @product.image %>
+</p>
 
+<p>
+  <strong>Nome da categoria:</strong>
   <%= @product.categorie.nameCat %>
 </p>
 
