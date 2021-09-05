@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_144520) do
     t.string "nameProduct"
     t.date "dateBuy"
     t.float "discount"
-    t.float "measurement"
+    t.string "measurement"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_144520) do
     t.string "nameProduct"
     t.date "dataSell"
     t.float "discount"
-    t.float "measurement"
+    t.string "measurement"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

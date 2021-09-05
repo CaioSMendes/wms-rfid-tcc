@@ -6,7 +6,7 @@ class CreateBuys < ActiveRecord::Migration[6.0]
       t.string :nameProduct
       t.date :dateBuy
       t.float :discount
-      t.float :measurement
+      t.string :measurement
       t.text :description
 
       t.timestamps

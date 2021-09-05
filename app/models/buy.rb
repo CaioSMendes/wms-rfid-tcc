@@ -5,4 +5,8 @@ class Buy < ApplicationRecord
     
     accepts_nested_attributes_for :tax
     validates :price, :quantity, presence: true
+
+    def self.total
+        self.sum(:price)
+    end
 end

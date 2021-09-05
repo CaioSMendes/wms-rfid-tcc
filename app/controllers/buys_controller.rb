@@ -6,6 +6,7 @@ class BuysController < ApplicationController
   # GET /buys or /buys.json
   def index
     @buys = Buy.all
+    @totbuy = Buy.total
   end
 
   # GET /buys/1 or /buys/1.json
