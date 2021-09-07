@@ -19,7 +19,7 @@
                     <i class="material-icons">shopping_bag</i>
                   </div>
                   <p class="card-category">Vendas</p>
-                  <h3 class="card-title"> oioi</h3>
+                  <h3 class="card-title"> Total </h3>
                    <h3 class="card-title"><b><%= number_to_currency(@totalsell, unit: "R$")%></b></h3>
                 </div>
                 <div class="card-footer">
@@ -36,7 +36,7 @@
                     <i class="material-icons">add_shopping_cart</i>
                   </div>
                   <p class="card-category">Compras</p>
-                     <h3 class="card-title"> oioi </h3>
+                     <h3 class="card-title"> Total </h3>
                      <h3 class="card-title"><b><%= number_to_currency(@totalbuy, unit: "R$")%></b></h3>
                 </div>
                 <div class="card-footer">
@@ -53,7 +53,7 @@
                     <i class="material-icons">account_balance_wallet</i>
                   </div>
                   <p class="card-category">Carteira</p>
-                  <h3 class="card-title"> oioi </h3>
+                  <h3 class="card-title"> Total </h3>
                   <h3 class="card-title"><b><%= number_to_currency(@totalbuy - @totalsell, unit: "R$")%></b></h3>
                 </div>
                 <div class="card-footer">
@@ -70,7 +70,7 @@
                     <i class="material-icons">desktop_mac</i>
                   </div>
                   <p class="card-category">Produtos</p>
-                      <h3 class="card-title"> oioi </h3>
+                      <h3 class="card-title"> Total  </h3>
                       <h3 class="card-title"><b><%= @products.size%></b></h3>
                 </div>
                 <div class="card-footer">
@@ -86,9 +86,10 @@
               <div class="card card-chart">
                 <div class="card-header card-header-success">
                   <div class="ct-chart" id="dailySalesChart"></div>
+                    Grafico aqui
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Daily Sales</h4>
+                  <h4 class="card-title">Compras</h4>
                   <p class="card-category">
                     <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
                 </div>
@@ -103,9 +104,10 @@
               <div class="card card-chart">
                 <div class="card-header card-header-warning">
                   <div class="ct-chart" id="websiteViewsChart"></div>
+                  Grafico aqui
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Email Subscriptions</h4>
+                  <h4 class="card-title">Vendas</h4>
                   <p class="card-category">Last Campaign Performance</p>
                 </div>
                 <div class="card-footer">
@@ -119,9 +121,10 @@
               <div class="card card-chart">
                 <div class="card-header card-header-danger">
                   <div class="ct-chart" id="completedTasksChart"></div>
+                    Grafico aqui
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Completed Tasks</h4>
+                  <h4 class="card-title">Clientes</h4>
                   <p class="card-category">Last Campaign Performance</p>
                 </div>
                 <div class="card-footer">
@@ -425,39 +428,6 @@
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
 

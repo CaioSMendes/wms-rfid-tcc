@@ -5081,13 +5081,13 @@
     padding: 0.5rem 0.75rem;
     margin-left: 0;
     line-height: 1.25;
-    color: #2196f3;
+    color: #9c27b0;
     background-color: transparent;
     border: 0 solid #dee2e6;
   }
   
   .page-link:hover {
-    color: #0a6ebd;
+    color: #9c27b0;
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6;
@@ -5117,8 +5117,8 @@
   .page-item.active .page-link {
     z-index: 1;
     color: #ffffff;
-    background-color: #2196f3;
-    border-color: #2196f3;
+    background-color: #9c27b0;
+    border-color: #9c27b0;
   }
   
   .page-item.disabled .page-link {
@@ -20970,4 +20970,15 @@
       flex-direction: row-reverse;
     }
   }
+
+  .card-caio {
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 120px;
+    border-radius: 6px;
+    color: #333333;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
   /*# sourceMappingURL=material-dashboard-rtl.css.map */

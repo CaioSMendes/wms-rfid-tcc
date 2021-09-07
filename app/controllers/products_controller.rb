@@ -2,8 +2,14 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :set_categorie_options, only:[:new, :edit, :show, :update, :create]
   # GET /products or /products.json
+
+  def filter_by_query
+    @products = @products.ransack(name_cont: params[:q]).result  
+  end 
+
   def index
-    @products = Product.all
+    @products = Product.paginate(page: params[:page], per_page: 10)
+    filter_by_query if params[:q]
   end
 
   # GET /products/1 or /products/1.json

@@ -1,9 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
-
+  
   # GET /categories or /categories.json
   def index
-    @categories = Categorie.all
+    #@categories = Categorie.paginate(page: params[:page], per_page: 10)
+    #filter_by_query if params[:q]
+    @q = Categorie.ransack(params[:q])
+    @categories = @q.result
   end
 
   # GET /categories/1 or /categories/1.json

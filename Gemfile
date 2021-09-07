@@ -23,7 +23,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'ransack'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap-style'
 
+gem "chartkick"
 gem 'apexcharts'
 gem 'groupdate'
 

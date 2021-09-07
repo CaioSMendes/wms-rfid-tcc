@@ -99,8 +99,8 @@
                   </div>
                 </div>
               </div>
+              <%= will_paginate @products, list_classes: %w(pagination d-flex justify-content-center) %>
             </div>
-    <%= render "partials/footer"%> 
   <script>
     $(document).ready(function() {
       $().ready(function() {

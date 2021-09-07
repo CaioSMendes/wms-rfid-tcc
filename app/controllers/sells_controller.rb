@@ -3,10 +3,14 @@ class SellsController < ApplicationController
   before_action :set_client_options, only:[:new, :edit, :show, :update, :create]
   before_action :set_product_options, only:[:new, :edit, :show, :update, :create]
 
+  def filter_by_query
+    @sells = @sells.ransack(nameProduct_cont: params[:q]).result 
+  end 
 
   # GET /sells or /sells.json
   def index
-    @sells = Sell.all
+    @sells = Sell.paginate(page: params[:page], per_page: 10)
+    filter_by_query if params[:q] 
   end
 
   # GET /sells/1 or /sells/1.json
