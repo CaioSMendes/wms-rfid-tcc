@@ -9,4 +9,10 @@ class Sell < ApplicationRecord
     def self.total
         self.sum(:price)
     end
+
+    def self.totalsell
+         #self.price * self.quantity
+        values = Sell.all.map{|sell| sell.price * sell.quantity}
+        values.reduce(:+)
+    end 
 end

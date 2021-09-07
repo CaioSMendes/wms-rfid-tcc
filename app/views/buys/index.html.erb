@@ -60,14 +60,14 @@
                             <%= buy.measurement %>
                           </td>
                           <td>
-                            <%= buy.price %>
+                            <%= number_to_currency(buy.price, unit: "R$") %>
                           </td>
                           <td>
                             <%= buy.created_at.to_date.strftime("%d-%m-%Y") %>
                           </td>
                           <td>
                             <% a = (buy.quantity)*(buy.price) %>
-                            <b>R$ </b><%= a  %>
+                            <b>R$ </b><%= number_to_currency(a,unit: "R$")%>
                           </td>
                           <td class="td-actions text-right">
                               <%= link_to buy_path(buy), class:"btn btn-primary btn-link btn-sm" do %>

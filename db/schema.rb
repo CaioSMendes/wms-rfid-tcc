@@ -57,7 +57,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_144520) do
   end
 
   create_table "buys", force: :cascade do |t|
-    t.float "price"
+    t.decimal "price", precision: 5, scale: 2
+    t.decimal "totbuy", precision: 5, scale: 2
     t.integer "quantity"
     t.string "nameProduct"
     t.date "dateBuy"
@@ -98,15 +99,15 @@ ActiveRecord::Schema.define(version: 2021_09_03_144520) do
     t.text "description"
     t.integer "quantity"
     t.string "unity"
-    t.float "price"
+    t.decimal "price", precision: 5, scale: 2
     t.date "date"
     t.string "productCode"
     t.string "gtin"
     t.string "rfid"
     t.integer "productMin"
     t.integer "productMax"
-    t.float "salePrice"
-    t.float "saleCost"
+    t.decimal "salePrice", precision: 5, scale: 2
+    t.decimal "saleCost", precision: 5, scale: 2
     t.string "avaliable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -130,7 +131,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_144520) do
   end
 
   create_table "sells", force: :cascade do |t|
-    t.float "price"
+    t.decimal "price", precision: 5, scale: 2
+    t.decimal "totsell", precision: 5, scale: 2
     t.integer "quantity"
     t.string "nameProduct"
     t.date "dataSell"
@@ -148,19 +150,19 @@ ActiveRecord::Schema.define(version: 2021_09_03_144520) do
   end
 
   create_table "taxes", force: :cascade do |t|
-    t.float "shipping"
-    t.float "costAdd"
-    t.float "ipi"
-    t.float "icms"
+    t.decimal "shipping", precision: 5, scale: 2
+    t.decimal "costAdd", precision: 5, scale: 2
+    t.decimal "ipi", precision: 5, scale: 2
+    t.decimal "icms", precision: 5, scale: 2
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.float "buy"
-    t.float "sell"
-    t.float "total"
+    t.decimal "buy", precision: 5, scale: 2
+    t.decimal "sell", precision: 5, scale: 2
+    t.decimal "total", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "sell_id", null: false

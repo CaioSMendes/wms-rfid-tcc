@@ -76,8 +76,7 @@
                             <%end%>
                           </td>
                           <td>
-                            <%= product.salePrice %>
-                          </td>
+                            <%= number_to_currency(product.salePrice, unit: "R$") %>
                           <td class="td-actions text-right">
                               <%= link_to product_path(product), class:"btn btn-primary btn-link btn-sm" do %>
                                 <i class="material-icons">search</i>

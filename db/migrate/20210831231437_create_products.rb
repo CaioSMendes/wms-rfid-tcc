@@ -5,15 +5,15 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.text :description
       t.integer :quantity
       t.string :unity
-      t.float :price
+      t.decimal :price, precision: 5, scale: 2
       t.date :date
       t.string :productCode
       t.string :gtin
       t.string :rfid
       t.integer :productMin
       t.integer :productMax
-      t.float :salePrice
-      t.float :saleCost
+      t.decimal :salePrice, precision: 5, scale: 2
+      t.decimal :saleCost, precision: 5, scale: 2
       t.string :avaliable
 
       t.timestamps

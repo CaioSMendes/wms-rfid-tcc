@@ -19,7 +19,8 @@
                     <i class="material-icons">shopping_bag</i>
                   </div>
                   <p class="card-category">Vendas</p>
-                  <h3 class="card-title"><b>R$</b> <%=@totsell%></h3>
+                  <h3 class="card-title"> oioi</h3>
+                   <h3 class="card-title"><b><%= number_to_currency(@totalsell, unit: "R$")%></b></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -35,7 +36,8 @@
                     <i class="material-icons">add_shopping_cart</i>
                   </div>
                   <p class="card-category">Compras</p>
-                     <h3 class="card-title"><b>R$</b> <%=@totbuy%></h3>
+                     <h3 class="card-title"> oioi </h3>
+                     <h3 class="card-title"><b><%= number_to_currency(@totalbuy, unit: "R$")%></b></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -51,7 +53,8 @@
                     <i class="material-icons">account_balance_wallet</i>
                   </div>
                   <p class="card-category">Carteira</p>
-                  <h3 class="card-title"><b>R$</b> </h3>
+                  <h3 class="card-title"> oioi </h3>
+                  <h3 class="card-title"><b><%= number_to_currency(@totalbuy - @totalsell, unit: "R$")%></b></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -67,9 +70,8 @@
                     <i class="material-icons">desktop_mac</i>
                   </div>
                   <p class="card-category">Produtos</p>
-                   <% @products.each do |product| %>
-                      <h3 class="card-title"><%= product.id%></h3>
-                    <%end%>
+                      <h3 class="card-title"> oioi </h3>
+                      <h3 class="card-title"><b><%= @products.size%></b></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
