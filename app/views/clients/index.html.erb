@@ -60,6 +60,11 @@
                                 <i class="material-icons">edit</i>
                               <%end%>
                             </td>
+                            <td class="td-actions text-right">
+                              <%= link_to edit_client_path(client), class:"btn btn-primary btn-link btn-sm" do %>
+                                <i class="material-icons">article</i>
+                              <%end%>
+                            </td>
                             <td class="td-actions text-right">  
                               <%= link_to client, method: :delete, class:"btn btn-danger btn-link btn-sm", data: { confirm: 'Are you sure?' } do %>
                                 <i class="material-icons">close</i>

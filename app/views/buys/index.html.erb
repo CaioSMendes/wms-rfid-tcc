@@ -79,6 +79,11 @@
                                 <i class="material-icons">edit</i>
                               <%end%>
                             </td>
+                            <td class="td-actions text-right">
+                              <%= link_to edit_buy_path(buy), class:"btn btn-primary btn-link btn-sm" do %>
+                                <i class="material-icons">article</i>
+                              <%end%>
+                            </td>
                             <td class="td-actions text-right">  
                               <%= link_to buy, method: :delete, class:"btn btn-danger btn-link btn-sm", data: { confirm: 'Are you sure?' } do %>
                                 <i class="material-icons">close</i>
@@ -91,7 +96,7 @@
                   </div>
                 </div>
               </div>
-              <%= will_paginate @categories, list_classes: %w(pagination d-flex justify-content-center) %>
+              <%= will_paginate @buys, list_classes: %w(pagination d-flex justify-content-center) %>
             </div>
   <script>
     $(document).ready(function() {

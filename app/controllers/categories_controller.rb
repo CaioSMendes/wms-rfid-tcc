@@ -3,10 +3,10 @@ class CategoriesController < ApplicationController
   
   # GET /categories or /categories.json
   def index
-    #@categories = Categorie.paginate(page: params[:page], per_page: 10)
-    #filter_by_query if params[:q]
-    @q = Categorie.ransack(params[:q])
-    @categories = @q.result
+    @categories = Categorie.paginate(page: params[:page], per_page: 10)
+    filter_by_query if params[:q]
+    #@q = Categorie.ransack(params[:q])
+    #@categories = @q.result
   end
 
   # GET /categories/1 or /categories/1.json

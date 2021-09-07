@@ -30,6 +30,11 @@ gem "chartkick"
 gem 'apexcharts'
 gem 'groupdate'
 
+# Gem para gerar os pdfs
+gem 'prawn-rails'
+# Gem para gerar os gráficos
+gem 'gruff'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
