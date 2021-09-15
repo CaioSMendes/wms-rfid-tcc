@@ -13,16 +13,11 @@
       padding: 40px;
     }
       
-
     .h2{
       color: #000000;
       box-sizing: border-box;
       margin: 0;
       padding: 30px;
-    }
-
-    .h3{
-
     }
 
     .rodape-pagina {
@@ -39,75 +34,34 @@
       text-align: center;
     }
 
-    .tabela1{
-      border:none !important;
-        width: 50% !important; /*Importante manter o !important rs */
-        margin: auto;
-        margin-top: 20px;
-        margin-bottom: 20px !important;
+    table {
+        border-collapse: collapse;
+        width: 100%;
     }
 
-    .tabela2{
-      border: none;
-        width: 50% !important; /*Importante manter o !important rs */
-        margin: auto;
-        margin-top: 20px;
-        margin-bottom: 20px !important;
+    th, td {
+        text-align: left;
+        padding: 8px;
     }
 
-    .botao-total{
-      color: #000000;
-      width: 350px;
-      margin: 0 auto;
-        padding: 15px 20px;
-        border-radius: 6px;
-        background-color:  #ffffff;
-        font-size: 45px;
-    }
+    tr:nth-child(even){background-color: #f2f2f2}
 
-    .botao-renda{
-      color: #ffffff;
-      width: 350px;
-      margin: 0 auto;
-        padding: 15px 20px;
-        border: 1px solid #eee;
-        border-radius: 6px;
-        background-color: #0783ef;
-        font-size: 18px;
-    }
-
-    .botao-gastos{
-      color: #ffffff;
-      width: 350px;
-        margin: 0 auto;
-        padding: 15px 20px;
-        border: 1px solid #eee;
-        border-radius: 6px;
-        background-color: #FF0000;
-        font-size: 18px;
-    }
-
-    .botao-enviar{
-
-    }
-
-
-    .div{
-
-      border: 1px solid black;	
+    th {
+        background-color: #9c27b0;
+        color: white;
     }
   </style>
 </head>
 <body>
 	<h1 class="h1" align="center"></h1>
 	<h2  class= "h2" align="center">Notas de venda</h2>
-	<H3>Data da emissao <%= Time.now.strftime("%d/%m/%Y %H:%M") %></h3>
+	<H3>Data da emissão <%= Time.now.strftime("%d/%m/%Y %H:%M") %></h3>
 
 	</br>
 
 	<h3>Valor da venda</h3>
 	<div>
-			<table class="tabela1">
+			<table>
                 <thead>
                     <tr>
                         <th>Nome do produto</th>
@@ -136,7 +90,7 @@
 
 	<h3>Custo adicional</h3>
 	<div>
-		<table class= "tabela2">
+		<table>
 			  <thead>
                     <tr>
                         <th>Frete</th>
@@ -162,8 +116,8 @@
 	</div>
 
   <h3>Valor total de venda</h3>
-	<div id="despesa-3">
-		<table class= "tabela2" id="tabela2">
+	<div>
+		<table>
 			  <thead>
                     <tr>
                         <th>Valor total do produto</th>
