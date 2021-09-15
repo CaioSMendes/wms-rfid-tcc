@@ -10,11 +10,23 @@ class SellsController < ApplicationController
   # GET /sells or /sells.json
   def index
     @sells = Sell.paginate(page: params[:page], per_page: 10)
-    filter_by_query if params[:q] 
+    filter_by_query if params[:q]
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "venda_lista", template: "sells/index.html.erb"   # Excluding ".pdf" extension.
+      end
+    end 
   end
 
   # GET /sells/1 or /sells/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "nota_de_venda", template: "sells/sells.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /sells/new

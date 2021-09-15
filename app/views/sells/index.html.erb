@@ -42,6 +42,10 @@
                               <i class="material-icons">attach_money</i>
                               Nova venda
                           <%end%>
+                          <%= link_to sells_path(format: :pdf), class: "btn btn-primary btn-circle" do %>
+                              <i class="material-icons">article</i>
+                              Exportar vendas
+                          <%end%>
                         </th>
                       </thead>
                       <tbody>
@@ -80,7 +84,7 @@
                               <%end%>
                             </td>
                             <td class="td-actions text-right">
-                              <%= link_to edit_sell_path(sell), class:"btn btn-primary btn-link btn-sm" do %>
+                              <%= link_to sell_path(sell, format: :pdf ), class:"btn btn-primary btn-link btn-sm" do %>
                                 <i class="material-icons">article</i>
                               <%end%>
                             </td>

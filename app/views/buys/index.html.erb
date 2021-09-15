@@ -41,6 +41,10 @@
                         <%= link_to new_buy_path, class: "btn btn-primary btn-circle" do %>
                               <i class="material-icons">local_mall</i>
                               Nova Compra
+                          <%end%> 
+                          <%= link_to buys_path(format: :pdf), class: "btn btn-primary btn-circle" do %>
+                              <i class="material-icons">local_mall</i>
+                              Exportar Compras
                           <%end%>
                         </th>
                       </thead>
@@ -80,7 +84,7 @@
                               <%end%>
                             </td>
                             <td class="td-actions text-right">
-                              <%= link_to edit_buy_path(buy), class:"btn btn-primary btn-link btn-sm" do %>
+                              <%= link_to buy_path(buy,format: :pdf), class:"btn btn-primary btn-link btn-sm" do %>
                                 <i class="material-icons">article</i>
                               <%end%>
                             </td>

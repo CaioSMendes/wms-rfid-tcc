@@ -10,10 +10,22 @@ class BuysController < ApplicationController
   def index
     @buys = Buy.paginate(page: params[:page], per_page: 10)
     filter_by_query if params[:q] 
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "compras_lista", template: "buys/index.html.erb",layout:"pdf"
+      end
+    end
   end
 
   # GET /buys/1 or /buys/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "nota_de_compra", template: "buys/buys.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /buys/new
@@ -75,7 +87,7 @@ class BuysController < ApplicationController
     # Only allow a list of trusted parameters through.
     def buy_params
       params.require(:buy).permit(:price, :quantity, :nameProduct, :dateBuy, :discount, :measurement, :description, :provider_id,
-        tax_attributes: [:shipping, :costAdd, :ipi, :icms]
+        tax_attributes: [:shipping, :costAdd, :ipi, :icms, :description]
       )
     end
 end

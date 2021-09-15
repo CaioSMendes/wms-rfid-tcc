@@ -10,10 +10,22 @@ class ProductsController < ApplicationController
   def index
     @products = Product.paginate(page: params[:page], per_page: 10)
     filter_by_query if params[:q]
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "produto_lista", template: "products/index.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /products/1 or /products/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "detalhes_do_produto", template: "products/products.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /products/new

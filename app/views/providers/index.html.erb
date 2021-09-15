@@ -33,6 +33,10 @@
                               <i class="material-icons">local_shipping</i>
                               Novo Fornecedor
                           <%end%>
+                           <%= link_to providers_path(format: :pdf), class: "btn btn-primary btn-circle" do %>
+                              <i class="material-icons">article</i>
+                              Exportar Fornecedores
+                          <%end%>
                         </th>
                       </thead>
                       <tbody>
@@ -57,6 +61,11 @@
                            <td class="td-actions text-right">
                               <%= link_to edit_provider_path(provider), class:"btn btn-primary btn-link btn-sm" do %>
                                 <i class="material-icons">edit</i>
+                              <%end%>
+                            </td>
+                             <td class="td-actions text-right">
+                              <%= link_to provider_path(provider, format: :pdf), class:"btn btn-primary btn-link btn-sm" do %>
+                                <i class="material-icons">article</i>
                               <%end%>
                             </td>
                             <td class="td-actions text-right">  

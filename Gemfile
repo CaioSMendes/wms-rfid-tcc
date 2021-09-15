@@ -32,6 +32,16 @@ gem 'groupdate'
 
 # Gem para gerar os pdfs
 gem 'prawn-rails'
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary"
+gem 'correios-cep' #tirar
+gem 'correios-frete'
+gem 'active_admin-cep_auto_complete' #tirar
+gem 'autocomplete_zipcode'
+
+
+gem 'pdfkit'
+gem 'render_anywhere'
 # Gem para gerar os gráficos
 gem 'gruff'
 

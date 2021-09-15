@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<link rel="stylesheet" href="desafio.css">
+	<title>Nota de compra</title>
+	<meta charset="utf-8">
+  <style>
+      .h1 {
+      color: #ffffff;
+      background-color: #9c27b0;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 40px;
+    }
+      
+
+    .h2{
+      color: #000000;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .h3{
+
+    }
+
+    .rodape-pagina {
+      background-color: #9c27b0;
+      color: #F2FFFC;
+      clear: both;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    body {
+      text-align: center;
+    }
+
+    .tabela1{
+      border:none !important;
+        width: 50% !important; /*Importante manter o !important rs */
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px !important;
+    }
+
+    .tabela2{
+      border: none;
+        width: 50% !important; /*Importante manter o !important rs */
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px !important;
+    }
+
+    .botao-total{
+      color: #000000;
+      width: 350px;
+      margin: 0 auto;
+        padding: 15px 20px;
+        border-radius: 6px;
+        background-color:  #ffffff;
+        font-size: 45px;
+    }
+
+    .botao-renda{
+      color: #ffffff;
+      width: 350px;
+      margin: 0 auto;
+        padding: 15px 20px;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        background-color: #0783ef;
+        font-size: 18px;
+    }
+
+    .botao-gastos{
+      color: #ffffff;
+      width: 350px;
+        margin: 0 auto;
+        padding: 15px 20px;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        background-color: #FF0000;
+        font-size: 18px;
+    }
+
+    .botao-enviar{
+
+    }
+
+
+    .div{
+
+      border: 1px solid black;	
+    }
+  </style>
+</head>
+<body>
+	<h1 class="h1" align="center"></h1>
+	<h2  class= "h2" align="center">Notas de compra</h2>
+	<H3>Data da emissao <%= Time.now.strftime("%d/%m/%Y %H:%M") %></h3>
+
+	</br>
+
+	<h3>Valor da compra</h3>
+	<div>
+			<table class="tabela1">
+                <thead>
+                    <tr>
+                        <th>Nome do produto</th>
+                        <th>Nome do fornecedor</th>
+                        <th>Data da compra</th>
+                        <th>Preço unitário</th>
+                        <th>Quantidade</th>
+                        <th>Unidade de medida</th>
+                        <th>Valor da compra</th>
+                    </tr>
+                    <tr>   
+                    	<td><%= @buy.nameProduct %></td>
+                    	<td><%= @buy.provider.corporateName %></td>
+                      <td><%= @buy.created_at.to_date.strftime("%d-%m-%Y") %></td>
+                      <td><%= @buy.price %></td>
+                      <td><%= @buy.quantity %></td>
+                      <td><%= @buy.measurement %></td>
+                      <td><strong><%= (@buy.quantity)*(@buy.price) %></strong></td>
+                    </tr>
+                </thead>
+                <tbody id="renda_tabela">
+
+               </tbody>
+    		</table>
+	</div> 
+
+	<h3>Custo adicional</h3>
+	<div>
+		<table class= "tabela2">
+			  <thead>
+                    <tr>
+                        <th>Frete</th>
+                        <th>Taxa de IPI</th>
+                        <th>Taxa de ICMS</th>
+                        <th>Custo adicional</th>
+                        <th>Descrição do custo adicional</th>
+                        <th>Valor total do custo adicional</th>
+                    </tr>
+                    <tr>
+                    	<td><%= @buy.tax.shipping %></td>
+                      <td><%= @buy.tax.ipi %></td>
+                      <td><%= @buy.tax.icms %></td>
+                      <td><%= @buy.tax.costAdd %></td>
+                      <td><%= @buy.tax.description %></td>
+                      <td><strong><%=(@buy.tax.shipping) + (@buy.tax.ipi) + ( @buy.tax.icms) + (@buy.tax.costAdd )%></strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>	
+		</table>
+	</div>
+
+  <h3>Valor total da compra</h3>
+	<div id="despesa-3">
+		<table class= "tabela2" id="tabela2">
+			  <thead>
+                    <tr>
+                        <th>Valor total do produto</th>
+                        <th>Valor total do custo adicional</th>
+                        <th>Valor total da compra</th>
+                    </tr>
+                    <tr>
+                    	<td> <%=totprod = (@buy.quantity)*(@buy.price) %> </td>
+                      <td> <%= totcost = (@buy.tax.shipping) + (@buy.tax.ipi) + ( @buy.tax.icms) + (@buy.tax.costAdd )%> </td>
+                      <td> <strong> <%= tot = totprod + totcost%> </strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>	
+		</table>
+	</div>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+  <div class="rodape-pagina">
+    <footer >
+			</br>
+      </br>
+      </br>
+	</footer>
+  </div>
+</body>
+</html>

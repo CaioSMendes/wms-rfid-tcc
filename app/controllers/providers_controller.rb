@@ -10,10 +10,22 @@ class ProvidersController < ApplicationController
   def index
     @providers = Provider.paginate(page: params[:page], per_page: 10)
     filter_by_query if params[:q]
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "fornecedor_lista", template: "providers/index.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /providers/1 or /providers/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "detalhe_do_fornecedor", template: "providers/providers.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /providers/new

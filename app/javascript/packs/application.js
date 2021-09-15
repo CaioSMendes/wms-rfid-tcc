@@ -8,6 +8,23 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require ("chartkick/chart.js")
+require ("jquery")
+
+
+$(document).on('ready', () => {
+    AutocompleteZipcode.mount({
+      onFail: (_, zipcodeEl) => {
+        $('#error').show();
+        $('#success').hide();
+        $(zipcodeEl).css('border', '1px solid red');
+      },
+      onSuccess: (_, zipcodeEl) => {
+        $('#success').show();
+        $('#error').hide();
+        $(zipcodeEl).css('border', '1px solid green');
+      },
+    });
+  });
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

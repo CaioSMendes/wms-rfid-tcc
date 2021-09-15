@@ -88,12 +88,16 @@
                           Nome da categoria
                         </th>
                         <th>
-                          Codigo da categoria
+                          Código da categoria
                         </th>
                         <th>
                         <%= link_to new_category_path, class: "btn btn-primary btn-circle" do %>
                               <i class="material-icons">create_new_folder</i>
                               Nova Categoria
+                          <%end%>
+                          <%= link_to categories_path(format: :pdf), class: "btn btn-primary btn-circle" do %>
+                              <i class="material-icons">article</i>
+                              Exportar Categorias
                           <%end%>
                         </th>
                       </thead>
@@ -117,11 +121,6 @@
                            <td class="td-actions text-right">
                               <%= link_to edit_category_path(category), class:"btn btn-primary btn-link btn-sm" do %>
                                 <i class="material-icons">edit</i>
-                              <%end%>
-                            </td>
-                            <td class="td-actions text-right">
-                              <%= link_to edit_category_path(category), class:"btn btn-primary btn-link btn-sm" do %>
-                                <i class="material-icons">article</i>
                               <%end%>
                             </td>
                             <td class="td-actions text-right">  

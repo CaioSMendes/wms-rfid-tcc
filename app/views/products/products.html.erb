@@ -1,0 +1,139 @@
+<H3>Data da emissao <%= Time.zone.now %></h3>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @product.quantity %>
+</p>
+
+<p>
+  <strong>Unity:</strong>
+  <%= @product.unity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @product.date %>
+</p>
+
+<p>
+  <strong>Productcode:</strong>
+  <%= @product.productCode %>
+</p>
+
+<p>
+  <strong>Gtin:</strong>
+  <%= @product.gtin %>
+</p>
+
+<p>
+  <strong>Rfid:</strong>
+  <%= @product.rfid %>
+</p>
+
+<p>
+  <strong>Productmin:</strong>
+  <%= @product.productMin %>
+</p>
+
+<p>
+  <strong>Productmax:</strong>
+  <%= @product.productMax %>
+</p>
+
+<p>
+  <strong>Saleprice:</strong>
+  <%= @product.salePrice %>
+</p>
+
+<p>
+  <strong>Salecost:</strong>
+  <%= @product.saleCost %>
+</p>
+
+<p>
+  <strong>Avaliable:</strong>
+  <%= @product.avaliable %>
+</p>
+
+<p>
+  <strong>Foto do produto:</strong>
+  <%= image_tag @product.image %>
+</p>
+
+<p>
+  <strong>Nome da categoria:</strong>
+  <%= @product.categorie.nameCat %>
+</p>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+<h2>Colored Table Header</h2>
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+    <td>$150</td>
+  </tr>
+  <tr>
+    <td>Joe</td>
+    <td>Swanson</td>
+    <td>$300</td>
+  </tr>
+  <tr>
+    <td>Cleveland</td>
+    <td>Brown</td>
+    <td>$250</td>
+</tr>
+</table>
+</body>
+</html>

@@ -5,6 +5,12 @@ class CategoriesController < ApplicationController
   def index
     @categories = Categorie.paginate(page: params[:page], per_page: 10)
     filter_by_query if params[:q]
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "categoria_lista", template: "categories/index.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
     #@q = Categorie.ransack(params[:q])
     #@categories = @q.result
   end

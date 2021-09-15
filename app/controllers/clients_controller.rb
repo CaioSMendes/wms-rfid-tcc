@@ -8,10 +8,22 @@ class ClientsController < ApplicationController
   def index
     @clients = Client.paginate(page: params[:page], per_page: 10)
     filter_by_query if params[:q]
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "lista_cliente", template: "clients/index.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /clients/1 or /clients/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "detalhe_do_cliente", template: "clients/clients.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /clients/new

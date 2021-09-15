@@ -24,19 +24,22 @@
                   <div class="card-body">
                     <form>
                       <div class="row">
-                        <div class="col-md-5">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Nome da empresa</label>
-                            <%= form.text_field :corporateName, class: "form-control" %>
-                          </div>
-                        </div>
-                        <div class="col-md-3">
+                        <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">Nome</label>
                             <%= form.text_field :name, class:"form-control" %>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Nome da empresa</label>
+                            <%= form.text_field :corporateName, class: "form-control" %>
+                          </div>
+                        </div
+                        <div class="col-md-6">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Email</label>
                             <%= form.text_field :email, class:"form-control" %>
@@ -87,50 +90,57 @@
                       </div>
                       <%= form.fields_for :address do |f| %>
                       <div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Cidade</label>
-                            <%= f.text_field :city, class:"form-control" %>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Rua</label>
-                            <%= f.text_field :street, class:"form-control" %>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Estado</label>
-                            <%= f.text_field :state, class:"form-control" %>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">CEP</label>
                             <%= f.text_field :zipcode, class:"form-control" %>
+                              <%= f.text_field :zipcode, data: { autocomplete_zipcode_provider: :zipcode } %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Rua</label>
+                            <%= f.text_field :street, class:"form-control" %>
+                              <%= f.text_field :street, data: { autocomplete_zipcode_provider: :street }  %>
                           </div>
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Bairro</label>
+                              <%= f.text_field :neighborhood, class:"form-control" %>
+                                <%= f.text_field :neighborhood, data: { autocomplete_zipcode_provider: :neighborhood }  %>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Estado</label>
+                            <%= f.text_field :state, class:"form-control" %>
+                            <%= f.text_field :state, data: { autocomplete_zipcode_provider: :state }  %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Cidade</label>
+                            <%= f.text_field :city, class:"form-control" %>
+                            <%= f.text_field :city, data: { autocomplete_zipcode_provider: :city }  %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Numero</label>
                             <%= f.text_field :number, class:"form-control" %>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Complemento</label>
                             <%= f.text_field :complement, class:"form-control" %>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Bairro</label>
-                            <%= f.text_field :neighborhood, class:"form-control" %>
                           </div>
                         </div>
                         <% end %> 

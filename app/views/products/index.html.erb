@@ -45,6 +45,10 @@
                               <i class="material-icons">desktop_mac</i>
                               Novo Produto
                           <%end%>
+                          <%= link_to products_path(format: :pdf), class: "btn btn-primary btn-circle" do %>
+                              <i class="material-icons">article</i>
+                              Exportar Produtos
+                          <%end%>
                         </th>
                       </thead>
                       <tbody>
@@ -88,7 +92,7 @@
                               <%end%>
                             </td>
                              <td class="td-actions text-right">
-                              <%= link_to edit_product_path(product), class:"btn btn-primary btn-link btn-sm" do %>
+                              <%= link_to product_path(product,format: :pdf ), class:"btn btn-primary btn-link btn-sm" do %>
                                 <i class="material-icons">article</i>
                               <%end%>
                             </td>

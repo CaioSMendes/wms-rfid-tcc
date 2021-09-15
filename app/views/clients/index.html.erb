@@ -33,6 +33,10 @@
                               <i class="material-icons">person_add</i>
                               Novo Cliente
                           <%end%>
+                          <%= link_to clients_path(format: :pdf), class: "btn btn-primary btn-circle" do %>
+                              <i class="material-icons">article</i>
+                              Exportar Clientes
+                          <%end%>
                         </th>
                       </thead>
                       <tbody>
@@ -61,7 +65,7 @@
                               <%end%>
                             </td>
                             <td class="td-actions text-right">
-                              <%= link_to edit_client_path(client), class:"btn btn-primary btn-link btn-sm" do %>
+                              <%= link_to client_path(client,format: :pdf), class:"btn btn-primary btn-link btn-sm" do %>
                                 <i class="material-icons">article</i>
                               <%end%>
                             </td>
