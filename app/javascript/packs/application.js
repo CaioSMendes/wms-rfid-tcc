@@ -7,28 +7,71 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require ("chartkick/chart.js")
 require ("jquery")
+require("chartkick")
+require("chart.js")
+import "chartkick/chart.js"
+import Chart from 'chart.js/auto'
+import ApexCharts from "apexcharts";
+window.ApexCharts = ApexCharts;
 
+document.addEventListener('turbolinks:load', () => {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: JSON.parse(ctx.canvas.dataset.labels),
+    datasets: [{
+      data: JSON.parse(ctx.canvas.dataset.data),
+    }]
+  },
+  });
+})
 
-$(document).on('ready', () => {
-    AutocompleteZipcode.mount({
-      onFail: (_, zipcodeEl) => {
-        $('#error').show();
-        $('#success').hide();
-        $(zipcodeEl).css('border', '1px solid red');
-      },
-      onSuccess: (_, zipcodeEl) => {
-        $('#success').show();
-        $('#error').hide();
-        $(zipcodeEl).css('border', '1px solid green');
-      },
+const inputsZipcode = $('#address, #address_comp, #neighborhood, #city, #state');
+const validateZipcode = /^[0-9]{8}$/;
+
+function clean_zipcode_form(alert) {
+  if (alert !== undefined) {
+    console.log(alert);
+  }
+  inputsZipcode.val('');
+}
+
+function fetchInfosFromZipcode(url) {
+  $.ajax({
+    url: url,
+    success: function(data) {
+      console.log(data);
+      if (!("erro" in data)) {
+        if (Object.prototype.toString.call(data) === '[object Array]') {
+          const data = data[0];
+        }
+        $('#address').val(data['logradouro']);
+        $('#address_comp').val(data['complemento']);
+        $('#neighborhood').val(data['bairro']);
+        $('#city').val(data['localidade']);
+        $('#state').val(data['uf']);
+      } else {
+        clean_zipcode_form("CEP não encontrado.");
+      }
+    },
+    timeout: 5000,
+  });
+}
+
+const addressAutocomplete = () => {
+  document.addEventListener("DOMContentLoaded", (event) => {
+    $('#zipcode').on('keyup', function(e) {
+      const cep = $('#zipcode').val().replace(/\D/g, '');
+      if (cep !== "" && validateZipcode.test(cep)) {
+        inputsZipcode.val('...');
+        fetchInfosFromZipcode('https://viacep.com.br/ws/' + cep + '/json/');
+      } else {
+        clean_zipcode_form(cep == "" ? undefined : "formato de CEP inválido.");
+      }
     });
   });
+}
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+export { addressAutocomplete };

@@ -24,14 +24,6 @@
                   <div class="card-body">
                     <form>
                       <div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Nome</label>
-                            <%= form.text_field :name, class:"form-control" %>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Nome da empresa</label>
@@ -146,7 +138,7 @@
                         <% end %> 
                       </div>
                        <div class="actions">
-                        <%= link_to 'Voltar', clients_path,  class:"btn btn-primary pull-right" %>
+                        <%= link_to 'Voltar', providers_path,  class:"btn btn-primary pull-right" %>
                       </div>
                       <div class="actions">
                         <%= form.submit "Cadastrar fornecedor", class:"btn btn-primary pull-right"%>

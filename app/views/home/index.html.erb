@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
@@ -86,16 +88,17 @@
               <div class="card card-chart">
                 <div class="card-header card-header-success">
                   <div class="ct-chart" id="dailySalesChart"></div>
-                    Grafico aqui
+                    Compras
                 </div>
                 <div class="card-body">
                   <h4 class="card-title">Compras</h4>
                   <p class="card-category">
                     <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
                 </div>
+                <%= line_chart Buy.group_by_month(:created_at, format: "%b %y", range: 1.year.ago..Date.current).count, title: "Novas compras x Mês", colors: ["#66bb6a", "#66bb6a"], width: '300px', height: '300px'%> 
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                    <i class="material-icons">access_time</i> Última atualização em <%= @buys.last.created_at.to_date.strftime("%d-%m-%Y")%>
                   </div>
                 </div>
               </div>
@@ -104,15 +107,16 @@
               <div class="card card-chart">
                 <div class="card-header card-header-warning">
                   <div class="ct-chart" id="websiteViewsChart"></div>
-                  Grafico aqui
+                  Vendas
                 </div>
                 <div class="card-body">
                   <h4 class="card-title">Vendas</h4>
                   <p class="card-category">Last Campaign Performance</p>
                 </div>
+                <%= line_chart Sell.group_by_month(:created_at, format: "%b %y", range: 1.year.ago..Date.current).count, title: "Novas Vendas x Mês", colors: ["#ffa726", "#ffa726"], width: '300px', height: '300px'%> 
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    <i class="material-icons">access_time</i> Última atualização em <%= @sells.last.created_at.to_date.strftime("%d-%m-%Y")%>
                   </div>
                 </div>
               </div>
@@ -120,16 +124,17 @@
             <div class="col-md-4">
               <div class="card card-chart">
                 <div class="card-header card-header-danger">
-                  <div class="ct-chart" id="completedTasksChart"></div>
-                    Grafico aqui
+                  <div class="ct-chart" id=""></div>
+                    Clientes
                 </div>
                 <div class="card-body">
                   <h4 class="card-title">Clientes</h4>
                   <p class="card-category">Last Campaign Performance</p>
                 </div>
+                <%= line_chart Client.group_by_month(:created_at, format: "%b %y", range: 1.year.ago..Date.current).count, title: "Novos clientes x Mês", colors: ["#ef5350", "#ef5350"], width: '300px', height: '300px'%> 
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    <i class="material-icons">access_time</i> Última atualização em <%= @clients.last.created_at.to_date.strftime("%d-%m-%Y")%>
                   </div>
                 </div>
               </div>
@@ -610,3 +615,4 @@
     });
   </script>
 </body>
+
