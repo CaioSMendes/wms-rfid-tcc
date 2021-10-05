@@ -2,14 +2,11 @@ class BuysController < ApplicationController
   before_action :set_buy, only: %i[ show edit update destroy ]
   before_action :set_provider_options, only:[:new, :edit, :show, :update, :create]
 
-  def filter_by_query
-    @buys = @buys.ransack(nameProduct_cont: params[:q]).result 
-  end 
   # GET /buys or /buys.json
-
   def index
     @buys = Buy.paginate(page: params[:page], per_page: 10)
-    filter_by_query if params[:q] 
+    @q = Buy.ransack(params[:q])
+    @buys = @q.result.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.pdf do

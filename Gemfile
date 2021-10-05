@@ -29,6 +29,7 @@ gem 'will_paginate-bootstrap-style'
 gem "chartkick"
 gem 'apexcharts'
 gem 'groupdate'
+gem "font-awesome-rails"
 
 # Gem para gerar os pdfs
 gem 'prawn-rails'

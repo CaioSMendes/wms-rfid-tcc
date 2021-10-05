@@ -2,14 +2,10 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: %i[ show edit update destroy ]
 
   # GET /providers or /providers.json
-
-  def filter_by_query
-    @providers = @providers.ransack(corporateName_or_fantasyName_cont: params[:q]).result  
-  end 
-
   def index
     @providers = Provider.paginate(page: params[:page], per_page: 10)
-    filter_by_query if params[:q]
+    @q = Provider.ransack(params[:q])
+    @providers = @q.result.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.pdf do

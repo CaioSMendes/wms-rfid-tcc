@@ -4,7 +4,8 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Categorie.paginate(page: params[:page], per_page: 10)
-    filter_by_query if params[:q]
+    @q = Categorie.ransack(params[:q])
+    @categories = @q.result.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.pdf do

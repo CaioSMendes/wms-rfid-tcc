@@ -1,13 +1,11 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
 
-  def filter_by_query
-    @clients = @clients.ransack(corporateName_or_fantasyName_or_name_cont: params[:q]).result  
-  end 
   # GET /clients or /clients.json
   def index
     @clients = Client.paginate(page: params[:page], per_page: 10)
-    filter_by_query if params[:q]
+    @q = Client.ransack(params[:q])
+    @clients = @q.result.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.pdf do
