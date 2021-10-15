@@ -57,7 +57,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">CNPJ</label>
-                            <%= form.text_field :cnpj, class:"form-control" %>
+                            <%= form.text_field :cnpj, class:"form-control", id:"cnpj"%>
                           </div>
                         </div>
                       </div>
@@ -65,7 +65,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Telefone</label>
-                            <%= form.text_field :phone, class: "form-control" %>
+                            <%= form.text_field :phone, class: "form-control", id:"tel"%>
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -80,18 +80,21 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">CEP</label>
-                            <%= f.text_field :zipcode, class:"form-control" %>
-                              <%= f.text_field :zipcode, data: { autocomplete_zipcode_provider: :zipcode, id: "zipcode"} %>
+
+                    <div class="input-group mb-3">
+                    <%= f.text_field :zipcode, class:"form-control", id:"cep"%>
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" id="buscar_cep">Buscar</button>
+                    </div>
+                  </div>
                           </div>
                         </div>
 
-                        
-                      
+
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Rua</label>
-                            <%= f.text_field :street, class:"form-control" %>
-                              <%= f.text_field :street, data: { autocomplete_zipcode_provider: :street, id: "address" }  %>
+                            <%= f.text_field :street, class:"form-control", id:"rua" %>
                           </div>
                         </div>
                       </div>
@@ -99,8 +102,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                               <label class="bmd-label-floating">Bairro</label>
-                              <%= f.text_field :neighborhood, class:"form-control" %>
-                                <%= f.text_field :neighborhood, data: { autocomplete_zipcode_provider: :neighborhood, id: "neighborhood" }  %>
+                              <%= f.text_field :neighborhood, class:"form-control", id:"bairro" %>
                             </div>
                         </div>
                       </div>
@@ -108,15 +110,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Estado</label>
-                            <%= f.text_field :state, class:"form-control" %>
-                            <%= f.text_field :state, data: { autocomplete_zipcode_provider: :state, id: "state" }  %>
+                            <%= f.text_field :state, class:"form-control", id:"uf" %>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Cidade</label>
-                            <%= f.text_field :city, class:"form-control" %>
-                            <%= f.text_field :city, data: { autocomplete_zipcode_provider: :city, id: "city" }  %>
+                            <%= f.text_field :city, class:"form-control", id:"cidade" %>
                           </div>
                         </div>
                       </div>
@@ -153,6 +153,63 @@
       <%= render "partials/footer"%>
     </div>
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+  <script>
+     document.getElementById('cnpj').addEventListener('input', function (e) {
+      var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+      e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
+    });
+
+     $(document).ready(function(){
+        var SPMaskBehavior = function (val) {
+      return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    },
+     spOptions = {
+      onKeyPress: function(val, e, field, options) {
+        field.mask(SPMaskBehavior.apply({}, arguments), options);
+        }
+      };
+
+      $('#tel').mask(SPMaskBehavior, spOptions);
+    });
+  </script>
+
+   <script>
+      $(function(){
+      $("#buscar_cep").click(function(){
+        //Nova variável "cep" somente com dígitos.
+        var cep = $("#cep").val().replace(/\D/g, '');
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+            //Consulta o webservice viacep.com.br/
+            $.getJSON("//viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                    if (!("erro" in dados)) {
+                        //Atualiza os campos com os valores da consulta.
+                        $("#rua").val(dados.logradouro);
+                        $("#bairro").val(dados.bairro);
+                        $("#cidade").val(dados.localidade);
+                        $("#uf").val(dados.uf);
+                    } //end if.
+                    else {
+                        //CEP pesquisado não foi encontrado.
+                        console.log("CEP não encontrado.");
+                    }
+                });
+            } //end if.
+            else {
+                console.log("Formato de CEP inválido.");
+            }
+        } //end if.
+      });
+    });
+  </script>
+
   <script>
     $(document).ready(function() {
       $().ready(function() {

@@ -23,7 +23,7 @@ class ClientsController < ApplicationController
       end
     end
   end
-
+  
   # GET /clients/new
   def new
     @client = Client.new

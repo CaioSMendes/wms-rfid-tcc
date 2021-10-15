@@ -2,7 +2,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @sell.price %>
+    <%= number_to_currency(@sell.price, unit: "R$")%>
 </p>
 
 <p>

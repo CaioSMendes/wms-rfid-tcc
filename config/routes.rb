@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get "data/fill", to: "clients#fill"
+  get 'addresses', to: 'address#show'
   root 'home#index'
   resources :bluetoohsearches
   resources :wallets

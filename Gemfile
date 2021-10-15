@@ -30,6 +30,8 @@ gem "chartkick"
 gem 'apexcharts'
 gem 'groupdate'
 gem "font-awesome-rails"
+gem 'devise'
+gem 'httparty'
 
 # Gem para gerar os pdfs
 gem 'prawn-rails'

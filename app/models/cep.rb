@@ -1,7 +1,7 @@
 require 'net/http'
 
 class CEP
-attr_reader :logradouro, :bairro, :localidade, :uf
+attr_reader :logradouro, :neighborhood, :localidade, :state
 
     def initialize(cep)
         cep_encontrado = encontrar(cep)
@@ -9,15 +9,15 @@ attr_reader :logradouro, :bairro, :localidade, :uf
     end
 
     def endereco
-        "#{@logradouro} / #{@bairro} / #{@localidade} - #{@uf}"
+        "#{@logradouro} / #{@neighborhood} / #{@localidade} - #{@state}"
     end
 
     private
     def preencher_dados(cep)
-        @logradouro = cep["logradouro"]
+        @neighborhood = cep["neighborhood"]
         @bairro = cep["bairro"]
         @localidade = cep["localidade"]
-        @uf = cep["uf"]
+        @state = cep["state"]
     end
 
     def encontrar(cep)
