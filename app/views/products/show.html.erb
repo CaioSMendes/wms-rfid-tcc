@@ -72,7 +72,11 @@
 
 <p>
   <strong>Foto do produto:</strong>
-  <%= image_tag @product.image %>
+    <% if @product.image.attached? %>
+      <%= image_tag @product.image %>
+    <% else %>
+      <%= image_tag ('padrao.png') %>
+    <%end%>
 </p>
 
 <p>

@@ -8,5 +8,4 @@ class Product < ApplicationRecord
     #accepts_nested_attributes_for :categorie
     #accepts_nested_attributes_for :provider
     validates :name, :quantity, :unity, :salePrice, :rfid, :saleCost, presence: true
-    
 end
