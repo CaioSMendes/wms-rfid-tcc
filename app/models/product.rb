@@ -8,4 +8,19 @@ class Product < ApplicationRecord
     #accepts_nested_attributes_for :categorie
     #accepts_nested_attributes_for :provider
     validates :name, :quantity, :unity, :salePrice, :rfid, :saleCost, presence: true
+
+    def name_categorie
+        self.categorie.name
+    end
+
+    def cod_categorie
+        self.categorie.codCategorie
+    end
+
+    def as_json(options={})
+        super(
+            root: true,
+            methods: [:name_categorie, :cod_categorie, :corporateName_provider, :fantasyName_provider]
+        )
+    end
 end
