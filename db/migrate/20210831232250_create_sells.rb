@@ -5,7 +5,6 @@ class CreateSells < ActiveRecord::Migration[6.0]
       t.decimal :totsell, precision: 5, scale: 2
       t.integer :quantity
       t.string :nameProduct
-      t.date :dataSell
       t.float :discount
       t.string :measurement
       t.text :description

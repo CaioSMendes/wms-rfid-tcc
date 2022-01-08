@@ -25,23 +25,22 @@
                   <div class="card-body">
                     <form>
                       <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Nome do produto</label>
                             <%= form.text_field :name, class: "form-control" %>
                           </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Quantidade</label>
                             <%= form.text_field :quantity, class:"form-control" %>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
-                            <label class="bmd-label-floating">Unidade de medida</label>
-                            <%= form.select :unity, [
-                                              'unidade (un)',
+                            <label class="bmd-label-floating"></label>
+                            <%= form.select :unity, ['Unidade de medida','unidade (un)',
                                               'metro (m)',
                                               'quilômetro (km)', 
                                               'hectômetro (hm)', 
@@ -73,20 +72,31 @@
                                               'milímetro cúbico (mm3)'],class:"form-control" %>
                           </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating"></label>
+                              <%= form.select("categorie_id", @categorie_options, { include_blank: 'Nome da categoria' }, class:"form-control") %>
+                            </div>
+                        </div>  
                       </div>
+
+                      
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label class="bmd-label-floating">Preço de venda</label>
-                            <%= form.text_field :salePrice, class:"form-control" %>
+                            <label class="bmd-label-floating">Preço</label>
+                            <%= form.text_field :price, class:"form-control" %>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Preço de custo</label>
-                            <%= form.text_field :saleCost, class:"form-control" %>
+
+                      <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Descrição do produto</label>
+                              <%= form.text_field :description, class:"form-control" %>
+                            </div>
                           </div>
-                        </div>
+
+
                       </div>
                       <div class="row">
                         <div class="col-md-6">
@@ -112,35 +122,18 @@
                             <%= form.text_field :rfid, class: "form-control" %>
                           </div>
                         </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label class="bmd-label-floating">Descrição do produto</label>
-                              <%= form.text_field :description, class:"form-control" %>
-                            </div>
-                          </div>
+                          
                         <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Quantidade minima</label>
-                            <%= form.text_field :productMax, class: "form-control" %>
+                          <div class="field">
+                              <%= form.label :image%>
+                              <%= form.file_field :image, multiple: false, class: "bmd-label-floating" %>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Quantidade minima</label>
-                            <%= form.text_field :productMin, class: "form-control" %>
-                          </div>
+                        <div class="actions">
+                          <%= link_to 'Voltar', products_path,  class:"btn btn-primary pull-right" %>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                              <label class="bmd-label-floating">Nome da categoria</label>
-                              <%= form.select("categorie_id", @categorie_options, { include_blank: 'Selecione...' }, class:"form-control") %>
-                            </div>
-                          </div>
-                      <div class="actions">
-                        <%= link_to 'Voltar', products_path, class:"btn btn-primary pull-right" %>
-                      </div>
                        <div class="actions">
-                        <%= form.submit "Editar produto", class:"btn btn-primary pull-right"%>
+                        <%= form.submit "Cadastrar produto", class:"btn btn-primary pull-right"%>
                       </div>
                       <div class="clearfix"></div>
                     </form>

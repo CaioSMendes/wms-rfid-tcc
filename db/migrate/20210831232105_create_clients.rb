@@ -2,7 +2,7 @@ class CreateClients < ActiveRecord::Migration[6.0]
   def change
     create_table :clients do |t|
       t.string :corporateName
-      t.string :fantasyName
+      t.string :clientName
       t.string :name
       t.string :phone
       t.string :cnpj

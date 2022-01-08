@@ -2,19 +2,13 @@ class CreateProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :products do |t|
       t.string :name
-      t.text :description
+      t.decimal :price, precision: 5, scale: 2
       t.integer :quantity
       t.string :unity
-      t.decimal :price, precision: 5, scale: 2
-      t.date :date
+      t.text :description
       t.string :productCode
       t.string :gtin
       t.string :rfid
-      t.integer :productMin
-      t.integer :productMax
-      t.decimal :salePrice, precision: 5, scale: 2
-      t.decimal :saleCost, precision: 5, scale: 2
-      t.string :avaliable
 
       t.timestamps
     end

@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2021_10_07_235208) do
     t.decimal "totbuy", precision: 5, scale: 2
     t.integer "quantity"
     t.string "nameProduct"
-    t.date "dateBuy"
     t.float "discount"
     t.string "measurement"
     t.text "description"
@@ -82,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_235208) do
 
   create_table "clients", force: :cascade do |t|
     t.string "corporateName"
-    t.string "fantasyName"
+    t.string "clientName"
     t.string "name"
     t.string "phone"
     t.string "cnpj"
@@ -96,19 +95,13 @@ ActiveRecord::Schema.define(version: 2021_10_07_235208) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.decimal "price", precision: 5, scale: 2
     t.integer "quantity"
     t.string "unity"
-    t.decimal "price", precision: 5, scale: 2
-    t.date "date"
+    t.text "description"
     t.string "productCode"
     t.string "gtin"
     t.string "rfid"
-    t.integer "productMin"
-    t.integer "productMax"
-    t.decimal "salePrice", precision: 5, scale: 2
-    t.decimal "saleCost", precision: 5, scale: 2
-    t.string "avaliable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "categorie_id"
@@ -117,7 +110,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_235208) do
 
   create_table "providers", force: :cascade do |t|
     t.string "corporateName"
-    t.string "fantasyName"
+    t.string "proprietaryName"
     t.string "phone"
     t.string "cnpj"
     t.string "stateRegistration"
@@ -135,7 +128,6 @@ ActiveRecord::Schema.define(version: 2021_10_07_235208) do
     t.decimal "totsell", precision: 5, scale: 2
     t.integer "quantity"
     t.string "nameProduct"
-    t.date "dataSell"
     t.float "discount"
     t.string "measurement"
     t.text "description"

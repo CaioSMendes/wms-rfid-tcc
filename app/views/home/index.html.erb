@@ -53,10 +53,16 @@
                   <div class="card-icon">
                     <i class="material-icons">account_balance_wallet</i>
                   </div>
+
                   <p class="card-category">Carteira</p>
                   <h3 class="card-title"> Total </h3>
-                  <h3 class="card-title"><b><%= number_to_currency(@totalbuy - @totalsell, unit: "R$")%></b></h3>
+                  <% if (@totalbuy - @totalsell ) <= 0 %>
+                    <h3 class="card-title"><b><p style="color:red"><%= number_to_currency(@totalbuy - @totalsell, unit: "R$")%></p></b></h3>
+                  <% else %>
+                    <h3 class="card-title"><b><p style="color:green"><%= number_to_currency(@totalbuy - @totalsell, unit: "R$")%></p></b></h3>
+                  <%end%>
                 </div>
+
                 <div class="card-footer">
                   <div class="stats">
                     <i class="material-icons">account_balance_wallet</i> Últimas 24 Horas

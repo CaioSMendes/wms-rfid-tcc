@@ -4,5 +4,5 @@ class Provider < ApplicationRecord
     accepts_nested_attributes_for :address
 
 
-    validates :corporateName, :fantasyName, :phone, :cnpj, :email, presence: true
+    validates :corporateName, :proprietaryName, :phone, :cnpj, :email, presence: true
 end

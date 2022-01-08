@@ -93,7 +93,7 @@
                           CNPJ 
                         </th>
                         <th>
-                          Inscrição estadual       
+                          Nome do proprietário       
                         </th>
                         <th>
                         <%= link_to new_provider_path, class: "btn btn-primary btn-circle" do %>
@@ -119,7 +119,7 @@
                             <%= provider.cnpj %>
                           </td>
                           <td>
-                            <%= provider.stateRegistration %>
+                            <%= provider.proprietaryName %>
                           <td class="td-actions text-right">
                               <%= link_to provider_path(provider), class:"btn btn-primary btn-link btn-sm" do %>
                                 <i class="material-icons">search</i>

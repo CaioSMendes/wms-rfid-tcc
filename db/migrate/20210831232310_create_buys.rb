@@ -5,7 +5,6 @@ class CreateBuys < ActiveRecord::Migration[6.0]
       t.decimal :totbuy, precision: 5, scale: 2
       t.integer :quantity
       t.string :nameProduct
-      t.date :dateBuy
       t.float :discount
       t.string :measurement
       t.text :description

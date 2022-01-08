@@ -79,7 +79,7 @@ class ProvidersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def provider_params
-      params.require(:provider).permit(:corporateName, :fantasyName, :phone, :cnpj, :stateRegistration, :email, :business, :codeProvider,
+      params.require(:provider).permit(:corporateName, :proprietaryName, :phone, :cnpj, :stateRegistration, :email, :business, :codeProvider,
         address_attributes: [:city, :street, :neighborhood, :number, :complement, :state, :zipcode]
       )
     end
