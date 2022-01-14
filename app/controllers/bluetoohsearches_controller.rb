@@ -1,9 +1,11 @@
 class BluetoohsearchesController < ApplicationController
   before_action :set_bluetoohsearch, only: %i[ show edit update destroy ]
+  before_action :set_codeRfid_service
 
   # GET /bluetoohsearches or /bluetoohsearches.json
   def index
-    @bluetoohsearches = Bluetoohsearch.all
+    @resultsApiCode = @summary_service.codeAPI
+    #@bluetoohsearches = Bluetoohsearch.all
   end
 
   # GET /bluetoohsearches/1 or /bluetoohsearches/1.json
@@ -57,6 +59,11 @@ class BluetoohsearchesController < ApplicationController
   end
 
   private
+
+    def set_codeRfid_service
+      @summary_service = CodeRfidUpc.new
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_bluetoohsearch
       @bluetoohsearch = Bluetoohsearch.find(params[:id])

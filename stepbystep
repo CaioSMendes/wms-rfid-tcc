@@ -189,3 +189,9 @@ rails dev:setup  -> rodar task seed dentro do rails
 - rake dev:setup para popular o banco no heroku
 
 gestor-estoque-tcc-unb
+
+
+achar executavel do ngrok na area de trabalho 
+- executar o comando ./ngrok http 3000
+- copiar o link fornecido
+

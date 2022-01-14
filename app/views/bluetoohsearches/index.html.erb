@@ -1,27 +1,151 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Bluetoohsearches</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Rfidcode</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bluetoohsearches.each do |bluetoohsearch| %>
-      <tr>
-        <td><%= bluetoohsearch.rfidCode %></td>
-        <td><%= link_to 'Show', bluetoohsearch %></td>
-        <td><%= link_to 'Edit', edit_bluetoohsearch_path(bluetoohsearch) %></td>
-        <td><%= link_to 'Destroy', bluetoohsearch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <%= render "partials/sidebar"%> 
+     <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">Dashboard Compras</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <form class="navbar-form">
+              <div class="input-group no-border">
+                <%
+=begin%>
+ <%= search_form_for @q do |f| %>
+                  <%= f.search_field :nameProduct_cont, class:"form-control", placeholder:"Pesquisar..." %>
+                  <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                  </button>
+                <% end %> 
+<%
+=end%>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:;">
+                  <i class="material-icons">dashboard</i>
+                  <p class="d-lg-none d-md-block">
+                    Stats
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
+                  <span class="notification">5</span>
+                  <p class="d-lg-none d-md-block">
+                    Some Actions
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                  <a class="dropdown-item" href="#">Another Notification</a>
+                  <a class="dropdown-item" href="#">Another One</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="#">Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->    
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Produtos comprado</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Código RFID
+                        </th> 
+                      </thead>
+                      <tbody>
+                        <tr>
+                        <% @resultsApiCode.each do |search| %>
+                          <td>
+                            <b><%= search['id']%></b>
+                          </td>
+                          <td>
+                            <%= search['rfidCode'] %>
+                          </td>
+                          <td>
+                            <%= link_to new_product_path, class: "btn btn-primary btn-circle" do %>
+                                <i class="material-icons">desktop_mac</i>
+                                Novo Produto
+                            <%end%>
+                          </td>
+                          <%
+=begin%>
+ <td class="td-actions text-right">
+                              <%= link_to buy_path(buy), class:"btn btn-primary btn-link btn-sm" do %>
+                                <i class="material-icons">search</i>
+                              <%end%>
+                            </td>
+                           <td class="td-actions text-right">
+                              <%= link_to edit_buy_path(buy), class:"btn btn-primary btn-link btn-sm" do %>
+                                <i class="material-icons">edit</i>
+                              <%end%>
+                            </td>
+                            <td class="td-actions text-right">
+                              <%= link_to buy_path(buy,format: :pdf), class:"btn btn-primary btn-link btn-sm" do %>
+                                <i class="material-icons">article</i>
+                              <%end%>
+                            </td>
+                            <td class="td-actions text-right">  
+                              <%= link_to buy, method: :delete, class:"btn btn-danger btn-link btn-sm", data: { confirm: 'Are you sure?' } do %>
+                                <i class="material-icons">close</i>
+                              <%end%>
+                            </td> 
+<%
+=end%>
+                        </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <%
+=begin%>
+ <%= will_paginate @buys, list_classes: %w(pagination d-flex justify-content-center) %> 
+<%
+=end%>
+            </div>
+</body>
 
 <%= link_to 'New Bluetoohsearch', new_bluetoohsearch_path %>

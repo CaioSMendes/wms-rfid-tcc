@@ -57,6 +57,13 @@
           <%end%>
 
           <%= content_tag :li ,class: "nav-item" do%>
+            <%=link_to  bluetoohsearches_path	, class:"nav-link" do%>
+                <i class="material-icons">radar</i>
+                Busca RFID
+            <%end%>
+          <%end%>
+
+          <%= content_tag :li ,class: "nav-item" do%>
             <%=link_to  taxes_path, class:"nav-link" do%>
                 <i class="material-icons">add_business</i>
                 Taxas

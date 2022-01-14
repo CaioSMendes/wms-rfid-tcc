@@ -25,6 +25,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'ransack'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap-style'
+gem 'excon'
 
 gem "chartkick"
 gem 'apexcharts'

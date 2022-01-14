@@ -147,6 +147,7 @@ GEM
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
     erubi (1.10.0)
+    excon (0.90.0)
     ffi (1.15.4)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -377,6 +378,7 @@ DEPENDENCIES
   correios-cep
   correios-frete
   devise
+  excon
   faker!
   font-awesome-rails
   groupdate
@@ -406,7 +408,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.7.5p203
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
