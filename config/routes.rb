@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "data/fill", to: "clients#fill"
   get 'addresses', to: 'address#show'
   root 'home#index'
+  get 'busca/index'
   get '/search' => 'bluetoohsearches#search'
   resources :bluetoohsearches
   resources :wallets

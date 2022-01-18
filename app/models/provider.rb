@@ -1,6 +1,6 @@
 class Provider < ApplicationRecord
     belongs_to :address
-    has_many :buys #certo
+    has_many :buys, dependent: :delete_all #certo
     accepts_nested_attributes_for :address
 
 

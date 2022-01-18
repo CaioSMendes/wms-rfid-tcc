@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
     def index
+        @categories = Categorie.all
+        @providers = Provider.all
         @products = Product.all
         @clients = Client.all
         @sells = Sell.all

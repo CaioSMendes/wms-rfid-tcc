@@ -5,6 +5,7 @@ class BluetoohsearchesController < ApplicationController
   # GET /bluetoohsearches or /bluetoohsearches.json
   def index
     @resultsApiCode = @summary_service.codeAPI
+    @products = Product.paginate(page: params[:page], per_page: 10)
     #@bluetoohsearches = Bluetoohsearch.all
   end
 
