@@ -15,11 +15,6 @@ class BluetoohsearchesController < ApplicationController
     #@resultTot.paginate(page: params[:page], per_page: 10)
   end
 
-  def bora
-    Product.where(rfid:"302EF13EFDD0F24000000001").pluck(:id)
-  end
-
-
   # GET /bluetoohsearches/1 or /bluetoohsearches/1.json
   def show
   end
