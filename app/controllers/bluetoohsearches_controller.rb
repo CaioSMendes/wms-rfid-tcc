@@ -5,9 +5,20 @@ class BluetoohsearchesController < ApplicationController
   # GET /bluetoohsearches or /bluetoohsearches.json
   def index
     @resultsApiCode = @summary_service.codeAPI
-    @products = Product.paginate(page: params[:page], per_page: 10)
-    #@bluetoohsearches = Bluetoohsearch.all
+    @products = Product.all
+    #@cod = @resultsApiCode.concat(@products)
+    #@codes = @resultsApiCode.pluck(:rfidCode).concat(@products.pluck(:rfid))
+    #@codes = @resultsApiCode.pluck(:rfidCode)(@products.pluck(:rfid)) 
+    @result = Product.all.map { |product| product.rfid }.uniq
+    @resultCode = @resultsApiCode.map {|search| search['rfidCode']}.uniq
+    @resultTot = @result.concat(@resultCode).tally
+    #@resultTot.paginate(page: params[:page], per_page: 10)
   end
+
+  def bora
+    Product.where(rfid:"302EF13EFDD0F24000000001").pluck(:id)
+  end
+
 
   # GET /bluetoohsearches/1 or /bluetoohsearches/1.json
   def show
@@ -52,7 +63,7 @@ class BluetoohsearchesController < ApplicationController
 
   # DELETE /bluetoohsearches/1 or /bluetoohsearches/1.json
   def destroy
-    @bluetoohsearch.destroy
+    @resultTot.destroy
     respond_to do |format|
       format.html { redirect_to bluetoohsearches_url, notice: "Bluetoohsearch was successfully destroyed." }
       format.json { head :no_content }

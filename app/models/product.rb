@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
     belongs_to :categorie #certo
-    has_many :sells,  dependent: :destroy
+    has_many :sells, dependent: :destroy
     #has_many :buys #certo
     #has_many :categories
     #belongs_to :provider

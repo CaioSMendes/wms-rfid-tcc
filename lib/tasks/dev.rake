@@ -2,7 +2,7 @@ namespace :dev do
   desc "TODO"
   task setup: :environment do
     p "Cadastrando Taxas"
-    100.times do |i|
+    20.times do |i|
       Tax.create!(
         shipping: Faker::Number.decimal(l_digits: 2),
         costAdd: Faker::Number.decimal(l_digits: 2),
@@ -12,7 +12,7 @@ namespace :dev do
     )
     end 
     p "Cadastrando Enderecos"
-    100.times do |i|
+    20.times do |i|
       Address.create!(
         city: Faker::Address.city,
         street: Faker::Address.street_name,
@@ -24,7 +24,7 @@ namespace :dev do
     )
     end
     p "Cadastrando Clientes"
-    100.times do |i|
+    20.times do |i|
       Client.create!(
         corporateName: Faker::Company.name,
         clientName: Faker::Artist.name,
@@ -37,7 +37,7 @@ namespace :dev do
     )
     end 
     p "Cadastrando Fornecedores"
-    100.times do |i|
+    20.times do |i|
       Provider.create!(
         corporateName: Faker::Company.name,
         proprietaryName: Faker::Artist.name,
@@ -51,14 +51,14 @@ namespace :dev do
     )
     end 
     p "Cadastrando categorias"
-    100.times do |i|
+    20.times do |i|
       Categorie.create!(
         nameCat: Faker::Company.type,
         codCategorie: Faker::Number.number(digits: 10)
       )
     end
     p "Cadastrando Produtos"
-    100.times do |i|
+    20.times do |i|
       Product.create!(
         name: Faker::ElectricalComponents.active,
         price: Faker::Commerce.price,
@@ -72,7 +72,7 @@ namespace :dev do
     )
     end
     p "Cadastrando Vendas"
-    100.times do |i|
+    20.times do |i|
       Sell.create!(
         price: Faker::Commerce.price,
         quantity: Faker::Number.between(from: 1, to: 500),
@@ -85,7 +85,7 @@ namespace :dev do
     )
     end 
     p "Cadastrando Compras"
-    100.times do |i|
+    20.times do |i|
       Buy.create!(
         price: Faker::Commerce.price,
         quantity: Faker::Number.between(from: 1, to: 500),
@@ -96,13 +96,13 @@ namespace :dev do
         tax: Tax.all.sample
     )
     end
-    p "Cadastrando Buscas para o Bluetooh"
-    100.times do |i|
-      Bluetoohsearch.create!(
-        rfidCode: Faker::Barcode.upc_e,
-        product: Product.all.sample
-    )
-    end
+    #p "Cadastrando Buscas para o Bluetooh"
+    #20.times do |i|
+      #Bluetoohsearch.create!(
+        #rfidCode: Faker::Barcode.upc_e,
+        #product: Product.all.sample
+    #)
+    #end
     puts "Finalizado com sucesso"
   end
 end

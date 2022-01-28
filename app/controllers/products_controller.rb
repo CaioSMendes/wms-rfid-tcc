@@ -79,7 +79,13 @@ class ProductsController < ApplicationController
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.find(params[:id]) # CERTO
+      #@product = Product.find(params[:rfid]
+      #@product = Product.where(params[:rfid])
+    end
+
+    def product_rfid_params
+      params.require(:product).permit(:rfid)
     end
 
     # Only allow a list of trusted parameters through.
