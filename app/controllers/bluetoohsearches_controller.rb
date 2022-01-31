@@ -12,7 +12,7 @@ class BluetoohsearchesController < ApplicationController
     @result = Product.all.map { |product| product.rfid }.uniq
     @resultCode = @resultsApiCode.map {|search| search['rfidCode']}.uniq
     @resultTot = @result.concat(@resultCode).tally
-    #@resultTot.paginate(page: params[:page], per_page: 10)
+    #@resultsApiCode.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /bluetoohsearches/1 or /bluetoohsearches/1.json
