@@ -14108,6 +14108,11 @@ label,
       margin-left: -10px;
       font-size: 0.875rem; }
 
+.card-icon-lg {
+  width: 64px;
+  height: 64px;
+}
+
 .icon-lg {
   width: 64px;
   height: 64px; }
