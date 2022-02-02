@@ -141,7 +141,7 @@
             <li class="nav-item d-flex align-items-center">
               <%if user_signed_in?%>
               <a class="nav-link text-body font-weight-bold px-0">
-                <%= link_to destroy_user_session_path do %>
+                <%= link_to destroy_user_session_path, method: :delete do %>
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="d-sm-inline d-none">Sair</span>
                   </a>
