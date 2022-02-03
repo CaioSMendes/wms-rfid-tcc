@@ -127,11 +127,10 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"><%= link_to 'Dashboard', root_path%></a></li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
-        </nav>
+          <h6 class="font-weight-bolder mb-0"><%= link_to 'Busca', busca_index_path %></h6>
+        </nav> 
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group input-group-outline">
@@ -201,7 +200,7 @@
         <div class="row gx-4 mb-2">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <%= image_tag("bluetooth.png", alt:"profile_image", class:"w-100 border-radius-lg shadow-sm", width:"320px", height:"320px" ) %>
+              <%= image_tag("rfid-icon.png", alt:"profile_image", class:"w-100 border-radius-lg shadow-sm", width:"320px", height:"320px" ) %>
             </div>
           </div>
           <div class="col-auto my-auto">
@@ -218,8 +217,17 @@
                 <div class="card-header pb-0 p-3">
                   <div class="row">
                     <div class="col-md-8 d-flex align-items-center">
-                      <h6 class="mb-0">Descrição:</h6>
+                      <h6 class="mb-0">Como usar:</h6>
                     </div>
+                    <ol>
+                      <li><b>Baixe e instale o APP.</b></li>
+                      <li><b>Abra o APP.</b></li>
+                      <li><b>Dentro do APP aceite a conexão Bluetooth.</b></li>
+                      <li><b>Conecte a UBT19471077B.</b></li>
+                      <li><b>Vá para aba EPCC1-G2.</b></li>
+                      <li><b>Para escanear suas tags clique em ESCANEAR.</b></li>
+                      <li><b>Para enviar as tags lidas no APP para o sistema clique em ENVIAR.</b></li>
+                    </ol>
                     <div class="col-md-4 text-end">
                       <a href="javascript:;">
                       </a>
@@ -228,8 +236,14 @@
                 </div>
                 <%=link_to  bluetoohsearches_path, class:"btn btn-primary btn-lg" do%>
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                      <i class="material-icons opacity-10">search</i>
+                      <i class="material-icons opacity-10"><i class="fas fa-tags"></i></i>
                       <span class="nav-link-text ms-1">Buscar RFID</span>
+                    </div>  
+                <%end%>
+                <%=link_to  bluetoohsearches_path, class:"btn btn-info btn-lg" do%>
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                      <i class="material-icons opacity-10"><i class="fas fa-download"></i></i>
+                      <span class="nav-link-text ms-1">Download APP</span>
                     </div>  
                 <%end%>
                 <div class="card-body p-3">
@@ -243,15 +257,14 @@
             <div class="col-12 col-xl-4">
               <div class="card card-plain h-100">
                 <div class="card-header pb-0 p-3">
-                  <h6 class="mb-0">Foto do produto</h6>
+                  <h6 class="mb-0">Passo a passo</h6>
                 </div>
                 <div class="card-body p-3">
                   <ul class="list-group">
                     <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
                       <div class="d-flex align-items-start flex-column justify-content-center">
                         <p>
-                            <%= image_tag ('padrao.png') %>
-                        </p>    
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/qr9ssWdXL88" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                        </p>    
                       </div>
                     </li>
                   </ul>
