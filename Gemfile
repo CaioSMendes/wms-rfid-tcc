@@ -41,7 +41,6 @@ gem "wkhtmltopdf-binary"
 gem 'correios-cep' #tirar
 gem 'correios-frete'
 gem 'active_admin-cep_auto_complete' #tirar
-gem 'autocomplete_zipcode'
 
 
 gem 'pdfkit'

@@ -85,8 +85,6 @@ GEM
     arbre (1.4.0)
       activesupport (>= 3.0.0, < 6.2)
       ruby2_keywords (>= 0.0.2, < 1.0)
-    autocomplete_zipcode (2.1.1)
-      rails (>= 3.1.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.8.1)
@@ -379,7 +377,6 @@ PLATFORMS
 DEPENDENCIES
   active_admin-cep_auto_complete
   apexcharts
-  autocomplete_zipcode
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
